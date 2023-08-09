@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập vào doanh số:</td>
+        <td><input type="text" id="revenue"/></td>
+    </tr>
+    <tr>
+        <td>Hoa hồng nhận được là:</td>
+        <td><span id="result"></span></td>
+    </tr>
+    <tr>
+        <td><button id="check" onclick="profit()">Kiểm tra</button></td>
+    </tr>
+</table>
+<script>
+    function profit(){
+        let revenue = +document.getElementById("revenue").value;
+        let profit;
+        if(revenue <= 10000000){
+            profit = revenue * 0.03
+        }
+        else if(revenue <= 50000000){
+            profit = revenue * 0.05
+        }
+        else if(revenue <= 200000000){
+            profit = revenue * 0.1
+        }
+        else {
+            profit = revenue * 0.15
+        }
+        document.getElementById("result").innerText = profit;
+    }
+</script>
+
+</body>
+</html>

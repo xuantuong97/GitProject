@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Nhập vào số a:</td>
+            <td><input type="text" id ="numbera"/></td>
+        </tr>
+        <tr>
+            <td>Nhập vào số b:</td>
+            <td><input type="text" id ="numberb"/></td>
+        </tr>
+        <tr>
+            <td>Nhập vào số c:</td>
+            <td><input type="text" id ="numberc"/></td>
+        </tr>
+    </table>
+<br>
+<button id="check" onclick="checknumber()">Kiểm tra</button>
+    <br>
+<label>Giá trị lớn nhất trong 3 số là: </label>
+<span id="result"></span>
+</body>
+<script>
+    function checknumber() {
+        let a = document.getElementById("numbera").value;
+        let b = document.getElementById("numberb").value;
+        let c = document.getElementById("numberc").value;
+        if (a > b && a > c) {
+            document.getElementById("result").innerHTML = a;
+        } else if (b > c) {
+            document.getElementById("result").innerHTML = b;
+        } else {
+            document.getElementById("result").innerHTML = c;
+        }
+    }
+</script>
+</html>

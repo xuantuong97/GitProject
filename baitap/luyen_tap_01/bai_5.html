@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập điểm bài kiểm tra:</td>
+        <td><input id="diemkt" type="text"/></td>
+    </tr>
+    <tr>
+        <td>Nhập điểm thi giữa kỳ:</td>
+        <td><input id="diemgk" type="text"/></td>
+    </tr>
+    <tr>
+        <td>Nhập điểm thi cuối kỳ:</td>
+        <td><input id="diemck" type="text"/></td>
+    </tr>
+    <tr>
+        <td>Xếp loại:</td>
+        <td><input id="result"/></td>
+    </tr>
+</table>
+<br>
+<button id="check" onclick="checkd()">Kiểm tra</button>
+
+<script>
+    function checkd(){
+        result = document.getElementById("result");
+        let diemKiemTra = +document.getElementById("diemkt").value;
+        let diemGiuaKy = +document.getElementById("diemgk").value;
+        let diemCuoiky = +document.getElementById("diemck").value;
+        let diemTongket = (diemKiemTra * 2 + diemGiuaKy * 3 + diemCuoiky * 5)/10;
+        if (diemTongket >=8.5) {
+            result.value = "Giỏi"
+        }
+        else if(diemTongket >= 7){
+            result.value = "khá"
+        }
+        else if(diemTongket >= 5.5){
+            result.value = "Trung Bình"
+        }
+        else {
+            result.value = "Yếu"
+        }
+    }
+</script>
+</body>
+</html>
