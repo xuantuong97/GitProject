@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập nhiệt độ:</td>
+        <td colspan="2"><input type="text" id="temp"/></td>
+    </tr>
+    <tr>
+        <td>
+            <select id="from">
+                <option>C</option>
+                <option>F</option>
+            </select>
+        </td>
+        <td>To</td>
+        <td>
+            <select id="to">
+                <option>C</option>
+                <option>F</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><span>Kết quả: </span><span id="result"></span></td>
+    </tr>
+</table>
+<br>
+<button type="button" id="check" onclick="checkt()">Kiểm tra</button>
+
+<script>
+    function checkt(){
+        let temp = +document.getElementById("temp").value;
+        let tempFrom = document.getElementById("from").value;
+        let tempTo = document.getElementById("to").value;
+        let result;
+        if (tempFrom === "C" && tempTo === "F") {
+            result = temp * 9 / 5 + 32;
+        }
+        else if (tempFrom === "F" && tempTo === "C") {
+            result = (temp - 32)*5/9;
+            }
+        else {
+            result = temp;
+            }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

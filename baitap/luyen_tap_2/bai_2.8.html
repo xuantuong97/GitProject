@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập vào 1 số nguyên: </label>
+<input type="text" id="number"/>
+<br>
+<p id="result"></p>
+<br>
+<button type="button" id="checkn" onclick="checkn()">Kiểm tra</button>
+
+<script>
+    function checkn(){
+        let number = +document.getElementById("number").value;
+        let result;
+        if(number > 0 && number < 120){
+            result = "Đây có thể là tuổi của 1 người"
+        }
+        else {
+            result = "Đây không thể là tuổi của 1 người"
+        }
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>

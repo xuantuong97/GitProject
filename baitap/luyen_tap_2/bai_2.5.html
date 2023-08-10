@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập độ dài cạnh 1:</td>
+        <td><input type="text" id="canh1"/></td>
+    </tr>
+    <tr>
+        <td>Nhập độ dài cạnh 2:</td>
+        <td><input type="text" id="canh2"/></td>
+    </tr>
+    <tr>
+        <td>Diện tích tam giác này là:</td>
+        <td><span id="result"></span></td>
+    </tr>
+</table>
+<br>
+<button type="button" id="check" onclick="checka()">Kiểm tra</button>
+
+<script>
+    function checka(){
+        let canh1 = +document.getElementById("canh1").value;
+        let canh2 = +document.getElementById("canh2").value;
+        let result;
+        if(canh1 > 0 && canh2 > 0){
+            result = canh1 * canh2 / 2;
+        }
+        else {
+            result = "không hợp lệ";
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập vào số tiền bạn muốn gửi:</td>
+        <td><input type="text" id="amount"/></td>
+    </tr>
+    <tr>
+        <td>Nhập vào số tháng bạn muốn gửi:</td>
+        <td><input type="text" id="month"/></td>
+    </tr>
+    <tr>
+        <td>Nhập vào số lãi suất hàng tháng (%):</td>
+        <td><input type="text" id="rate"/></td>
+    </tr>
+    <tr>
+        <td>Số tiền lãi nhận được là:</td>
+        <td><span id="result"></span></td>
+    </tr>
+</table>
+<br>
+<button type="button" id="checkn" onclick="checkn()">Kiểm tra</button>
+
+<script>
+    function checkn(){
+        let amount = +document.getElementById("amount").value;
+        let month = +document.getElementById("month").value;
+        let rate = +document.getElementById("rate").value;
+        let tienlai;
+        if (amount>0 && month>0 && rate>0){
+            tienlai = amount * (Math.pow((1+rate/100),month)) - amount;
+            document.getElementById("result").innerText = tienlai;
+        }
+        else {
+            document.getElementById("result").innerText = "Số liệu bạn nhập không hợp lệ";
+        }
+    }
+</script>
+</body>
+</html>

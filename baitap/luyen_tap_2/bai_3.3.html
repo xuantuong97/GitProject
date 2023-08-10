@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập độ dài cạnh:</td>
+        <td><input type="text" id="length"/></td>
+    </tr>
+    <tr>
+        <td>Diện tích hình vuông là:</td>
+        <td><span id="result"></span></td>
+    </tr>
+</table>
+<br>
+<button type="button" id="check" onclick="checka()">Kiểm tra</button>
+</body>
+<script>
+    function checka(){
+        let length = +document.getElementById("length").value;
+        let result;
+        if (length > 0) {
+            result = length * length;
+        }
+        else{
+            result = "Không hợp lệ"
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập độ dài:</td>
+        <td colspan="2"><input type="text" id="length"/></td>
+    </tr>
+    <tr>
+        <td>
+            <select id="from">
+                <option>m</option>
+                <option>ft</option>
+            </select>
+        </td>
+        <td>To</td>
+        <td>
+            <select id="to">
+                <option>m</option>
+                <option>ft</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><span>Kết quả: </span><span id="result"></span></td>
+    </tr>
+</table>
+<br>
+<button type="button" id="check" onclick="checkt()">Kiểm tra</button>
+
+<script>
+    function checkt(){
+        let length = +document.getElementById("length").value;
+        let tempFrom = document.getElementById("from").value;
+        let tempTo = document.getElementById("to").value;
+        let result;
+        if (tempFrom === "m" && tempTo === "ft") {
+            result = length * 3.2808;
+        }
+        else if (tempFrom === "ft" && tempTo === "m") {
+            result = length / 3.2808;
+        }
+        else {
+            result = length;
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

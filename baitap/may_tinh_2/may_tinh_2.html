@@ -3,37 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
-<table>
+<table border="1"  cellspacing="20">
     <tr>
-        <td colspan="4"><input id="ip" type="text"/></td>
+        <td colspan="4" style="text-align: right" height="50 px">
+            <span id="result"></span>
+        </td>
     </tr>
     <tr>
-        <td><button onclick="plustext('1')">1</button></td>
-        <td><button onclick="plustext('2')">2</button></td>
-        <td><button onclick="plustext('3')">3</button></td>
-        <td><button onclick="plustext('+')">+</button></td>
+        <td><button type="button" onclick="calculator('1')">1</button></td>
+        <td><button type="button" onclick="calculator('2')">2</button></td>
+        <td><button type="button" onclick="calculator('3')">3</button></td>
+        <td><button type="button" onclick="calculator('+')">+</button></td>
     </tr>
     <tr>
-        <td><button onclick="plustext('4')">4</button></td>
-        <td><button onclick="plustext('5')">5</button></td>
-        <td><button onclick="plustext('6')">6</button></td>
-        <td><button onclick="plustext('-')">-</button></td>
+        <td><button type="button" onclick="calculator('4')">4</button></td>
+        <td><button type="button" onclick="calculator('5')">5</button></td>
+        <td><button type="button" onclick="calculator('6')">6</button></td>
+        <td><button type="button" onclick="calculator('-')">-</button></td>
     </tr>
     <tr>
-        <td><button onclick="plustext('7')">7</button></td>
-        <td><button onclick="plustext('8')">8</button></td>
-        <td><button onclick="plustext('9')">9</button></td>
-        <td><button onclick="plustext('*')">x</button></td>
+        <td><button type="button" onclick="calculator('7')">7</button></td>
+        <td><button type="button" onclick="calculator('8')">8</button></td>
+        <td><button type="button" onclick="calculator('9')">9</button></td>
+        <td><button type="button" onclick="calculator('*')">X</button></td>
     </tr>
     <tr>
-        <td><button onclick="cleartext()">C</button></td>
-        <td><button onclick="plustext('0')">0</button></td>
-        <td><button onclick="caculator()">=</button></td>
-        <td><button onclick="plustext('/')">/</button></td>
+        <td><button type="button" onclick="calculator('c')">C</button></td>
+        <td><button type="button" onclick="calculator('0')">0</button></td>
+        <td><button type="button" onclick="calculator('=')">=</button></td>
+        <td><button type="button" onclick="calculator('/')">/</button></td>
     </tr>
 </table>
-<script src="may_tinh_2.js"></script>
+
+<script>
+    function calculator(x) {
+        let result = document.getElementById("result").innerText;
+        switch (x){
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+                result = result + x;
+                break;
+            case 'c':
+                result = '';
+                break;
+            case '=':
+                result = eval(result);
+        }
+        document.getElementById("result").innerText = result;
+    }
+</script>
 </body>
 </html>
