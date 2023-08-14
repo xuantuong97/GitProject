@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr><td>Nhập số lượng số nguyên tố cần in ra (n nguyên và lớn hơn 0):</td></tr>
+    <tr>
+        <td><input type="text" id="number"/></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="result()">Kết quả</button></td>
+    </tr>
+</table>
+<script>
+
+    // tạo function để kiểm tra 1 số có phải là số nguyên tố.
+    function checks(j) {
+        let i = (j - j % 2) / 2;
+        let result;
+        for (let k = 2; k <= i; k++) {
+            if (j % k === 0) {
+                result = "No";
+                break;
+            } else {
+                result = "Yes"
+            }
+        }
+        return result;
+    }
+    function result() {
+        let n = +document.getElementById("number").value;
+        let rs = "";
+        if (n === 1){
+             rs = "2";
+        }
+        else if ( n === 2) {
+             rs = "2" + "<br>" + "3" + "<br>";
+        }
+        else {
+             rs = "2" + "<br>" + "3" + "<br>";
+            let k = 4;
+            for (let i = 3; i <= n;) {
+                if (checks(k) === "Yes") {
+                    rs = rs + k + "<br>";
+                    k += 1;
+                    i++;
+                } else {
+                    k += 1;
+                }
+            }
+        }
+        document.write(rs);
+    }
+</script>
+</body>
+
+</html>

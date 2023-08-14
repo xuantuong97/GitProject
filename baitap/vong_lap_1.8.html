@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="guessNumber()">Chơi!</button>
+<script>
+    function guessNumber() {
+        alert("Chơi đoán số ngẫu nhiên trong khoảng cho trước.")
+        let nMin = +prompt("Nhập cận dưới:")
+        let nMax = +prompt("Nhập cận trên:")
+        let randomNumber = Math.floor(Math.random() * (nMax - nMin)) + nMin;
+        let guess = +prompt("Bạn hãy đoán 1 số nằm trong khoảng từ " + nMin + " đến " + nMax);
+        let i = 1;
+        do {
+            if (guess === randomNumber) {
+                alert("Bạn đã đoán đúng")
+                i--;
+                break;
+            } else if (guess > randomNumber) {
+                guess = +prompt("Số bạn đoán lớn hơn kết quả, hãy đoán lại:");
+                i++;
+            } else {
+                guess = +prompt("Số bạn đoán nhỏ hơn kết quả, hãy đoán lại:");
+                i++;
+            }
+
+        }
+        while (i <= 2);
+        if (i === 3) {
+            alert("Bạn đã hết lượt chơi!")
+        }
+    }
+</script>
+</body>
+</html>

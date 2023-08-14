@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let rs = "";
+    for( let i=1; i<=100; i++){
+        if (i===100){
+            alert("Hoàn thành");
+            break;
+        }
+        else {rs = rs + i + "<br>";}
+    }
+    document.getElementById("result").innerHTML = rs;
+</script>
+</body>
+</html>
