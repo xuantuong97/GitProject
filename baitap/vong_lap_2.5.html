@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nhập số tiền gửi ban đầu:</td>
+        <td><input type = "text" id = "amount"></td>
+    </tr>
+    <tr>
+        <td>Nhập số tháng muốn gửi:</td>
+        <td><input type = "text" id = "month"></td>
+    </tr>
+    <tr>
+        <td>Nhập lãi suất hàng tháng (%):</td>
+        <td><input type = "text" id = "rate"></td>
+    </tr>
+    <tr>
+        <td>Số tiền lãi là:</td>
+        <td><div id = "result"></div></td>
+    </tr>
+</table>
+<br>
+<button type="button" onclick="checkc()">Kiểm tra</button>
+<script>
+    function checkc() {
+        let initialAmount = +document.getElementById("amount").value;
+        let amount = +document.getElementById("amount").value;
+        let month = +document.getElementById("month").value;
+        let rate = +document.getElementById("rate").value;
+        let profit;
+        for (let i = 1; i <= month; i++) {
+            amount += amount * rate / 100;
+        }
+        profit = amount - initialAmount
+        document.getElementById("result").innerHTML = profit;
+    }
+</script>
+</body>
+</html>

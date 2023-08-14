@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        let result1 = "";
+        for (let j = 1; j <= 5; j++) {
+            for (let i = 1; i <= j; i++) {
+                result1 += "*";
+            }
+            result1 += "<br>"
+        }
+        let result2 = "";
+        for (let j = 1; j <= 5; j++) {
+            for (let i = 5; i >= j; i--) {
+                result2 += "*";
+            }
+            result2 += "<br>"
+        }
+        let result3= "";
+        for (let k=1; k<=5;k++){
+            for (let i = 1; i<= 5-k; i++){
+                result3 += "&nbsp" + "&nbsp";
+            }
+            for (let j = 1; j<=k; j++) {
+                result3 += "*";
+            }
+            result3 += "<br>"
+        }
+        let result4 = "";
+        for (let k=1; k<=5;k++){
+            for (let i = 1; i<k; i++){
+                result4 += "&nbsp" + "&nbsp";
+            }
+            for (let j = 1; j<=6-k; j++) {
+                result4 += "*";
+            }
+            result4 += "<br>"
+        }
+        document.write(result1 + "<br>" + result2 + "<br>" + result3 + "<br>" + result4);
+
+</script>
+</body>
+</html>
