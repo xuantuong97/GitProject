@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Nạp các số nguyên cho mảng:</td>
+        <td><input type="text" id="addNumber"/></td>
+        <td><button type="button" onclick="addNumber()">Nạp</button></td>
+        <td><button type="button" onclick="resetArr()">Reset</button></td>
+    </tr>
+    <tr>
+        <td>Số số nguyên lớn hơn 10:</td>
+        <td><span id = "result"></span></td>
+    </tr>
+</table>
+<br>
+<button type = "button" onclick="checkn()">Kiểm tra</button>
+<script>
+    let arrNumber = [];
+    let i = 0;
+    function addNumber(){
+        let number = +document.getElementById("addNumber").value;
+        arrNumber[i] = number;
+        i++;
+        document.getElementById("addNumber").value = "";
+    };
+    function checkn(){
+        let k = 0;
+        for( let j = 0; j<arrNumber.length; j++){
+            if(arrNumber[j] >= 10){
+                k++;
+            }
+            document.getElementById("result").innerHTML = k;
+        }
+    }
+    function resetArr(){
+        arrNumber = [];
+        document.getElementById("result").innerHTML = 0;
+    }
+</script>
+</body>
+</html>

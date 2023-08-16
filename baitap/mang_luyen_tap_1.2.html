@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Nạp các số nguyên cho mảng:</td>
+            <td><input type="text" id="addNumber"/></td>
+            <td><button type="button" onClick="addNumber()">Nạp</button></td>
+            <td><button type="button" onClick="resetArr()">Reset</button></td>
+        </tr>
+        <tr>
+            <td>Kết quả:</td>
+            <td colspan="3"><span id = "result"></span></td>
+        </tr>
+    </table>
+    <br>
+        <button type = "button" onClick="checkn()">Kiểm tra</button>
+        <script>
+            let arrNumber = [];
+            let i = 0;
+            function addNumber(){
+            let number = +document.getElementById("addNumber").value;
+            arrNumber[i] = number;
+            i++;
+            document.getElementById("addNumber").value = "";
+        };
+            function checkn(){
+            let max = arrNumber[0];
+            let index = 0;
+            for (let j=1; j<arrNumber.length; j ++){
+                if (arrNumber[j] > max){
+                    max = arrNumber[j];
+                    index = j;
+                }
+            }
+            document.getElementById("result").innerHTML = ("Phần tử có giá trị lớn nhất trong mảng là: "+ max + " vị trí xuất hiện đầu tiên là: "+index)
+        }
+
+
+            function resetArr(){
+            arrNumber = [];
+            i = 0;
+        }
+</script>
+</body>
+</html>

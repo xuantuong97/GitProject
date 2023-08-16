@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrLength = +prompt("Nhập độ dài của mảng:")
+    let arr = new Array(arrLength);
+    for (let i = 0; i<arrLength; i++){
+        arr[i] = prompt("Nhập giá trị của phần tử [" + i + "]:");
+        if (arr[i] === "-"){
+            arr[i] = "_"
+        }
+    }
+    document.write("Mảng sau khi đã sửa đổi: " + arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrNumber = prompt("Nhập vào chuỗi các số:")
+    let newArr = [];
+    for (let i = 0; i< arrNumber.length; i++){
+        if(arrNumber[i]%2 === 0 && arrNumber[i+1]%2 === 0){
+            newArr.push(arrNumber[i] + "-");
+        }
+        else{
+            newArr.push(arrNumber[i]);
+        }
+    }
+    let newString = newArr.join("")
+    document.write(newString);
+</script>
+</body>
+</html>

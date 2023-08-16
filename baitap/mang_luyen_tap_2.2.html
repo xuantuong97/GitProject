@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrLength = +prompt("Nhập số lượng phần tử mảng:")
+    let arr = new Array(arrLength);
+    for (let i = 0; i<arrLength; i++){
+        arr[i] = prompt("Nhập giá trị của phần tử [" + i + "]:")
+    }
+    let first = 0;
+    let last = arrLength - 1;
+    let neutral;
+    while (first < last){
+        neutral = arr[first];
+        arr[first] = arr[last];
+        arr[last] = neutral;
+        first++;
+        last--;
+    }
+    let result = "";
+    for(let j  =0;j<arr.length;j++){
+        result += arr[j];
+    }
+    document.write(result)
+</script>
+</body>
+</html>

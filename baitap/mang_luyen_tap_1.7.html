@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array(10);
+    for (let i = 0; i<10; i++){
+        arr[i] = +prompt("Nhập giá trị của phần tử [" + i + "]:")
+    }
+    let numberV = +prompt("Nhập vào số nguyên V cần xoá:")
+    for (let j = 0; j<arr.length; j++) {
+        if (numberV === arr[j]) {
+            for (let k = j;k<arr.length; k++) {
+                arr[k] = arr[k + 1];
+            }
+            arr[arr.length - 1] = 0;
+            j--;
+        }
+    }
+    document.write("Mảng sau khi xoá V là: " + arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrLength = +prompt("Nhập số lượng phần tử mảng:")
+    let arr = new Array(arrLength);
+    for (let i = 0; i<arrLength; i++){
+        arr[i] = prompt("Nhập giá trị của phần tử [" + i + "]:")
+    }
+    document.write("Mảng ban đầu là: "+ arr + "<br>" )
+    let first = 0;
+    let last = arrLength - 1;
+    let neutral;
+    while (first < last){
+        neutral = arr[first];
+        arr[first] = arr[last];
+        arr[last] = neutral;
+        first++;
+        last--;
+    }
+    document.write("Mảng sau khi đảo ngược là: " + arr)
+</script>
+</body>
+</html>

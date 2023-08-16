@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrA = new Array(10);
+    let arrB = new Array(10);
+    let arrC =[];
+    let i = 0;
+    for(let j =0; j<arrA.length; j++){
+        arrA[j] = prompt("Nhập phần tử [" + j + "] của mảng A:")
+        arrC[i] = arrA[j];
+        i++;
+    }
+    for(let k =0; k<arrB.length; k++){
+        arrB[k] = prompt("Nhập phần tử [" + k + "] của mảng B:")
+        arrC[i] = arrB[k];
+        i++;
+    }
+    document.write("Mảng C là: " + arrC);
+</script>
+</body>
+</html>

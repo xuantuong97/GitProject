@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array(10);
+    for (let i = 0; i<10; i++){
+        arr[i] = +prompt("Nhập giá trị của phần tử [" + i + "]:")
+    }
+    for (let j = 0; j<arr.length - 1; j++){
+        let neutral;
+        for(let k = j+1; k<arr.length; k++){
+            if (arr[k]>arr[j]){
+                neutral = arr[j];
+                arr[j] = arr[k];
+                arr[k] = neutral;
+            }
+        }
+    }
+    document.write("Mảng sau khi sắp xếp là: " + arr)
+</script>
+</body>
+</html>
