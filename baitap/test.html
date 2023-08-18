@@ -7,14 +7,30 @@
 </head>
 <body>
 <script>
-    let a = "S";
-    let b = a.toLowerCase();
-    if (a!==b){
-        a = a.toLowerCase()
+    let n=+prompt("nhap n")
+    let result ="";
+    for(let h=1;h<=n;h++){
+        if(h===1||h===5){
+            for(let i = 1;i<=n; i++){
+                for(let k =1;k<=n-i;k++){
+                    result+= "&nbsp&nbsp"
+                }
+                for(let j=1;j<=2*i-1;j++){
+                    result+="*"
+                }
+                result+="<br>"
+            }
+        }
+        else{
+            for(let i = 1;i<=n; i++){
+                for(let k =1;k<=n-i;k++){
+                    result+= "&nbsp&nbsp"
+                }
+
+            }
+        }
     }
-    document.write(a)
-
+    document.write(result)
 </script>
-
 </body>
 </html>

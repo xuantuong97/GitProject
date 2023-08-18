@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkK(){
+        let arrL = +prompt("Nhap vao do dai mang")
+        let arr = [];
+        for (let i = 0; i<arrL; i++){
+            arr[i] = prompt("Nhap vao ki tu")
+        }
+        let word = prompt("nhap vao ki tu can kiem tra")
+        let result = 0;
+        for (let j = 0;j<arrL; j++){
+            if (arr[j] === word){
+                result ++
+            }
+        }
+        if (result === 0){
+            result = -1;
+        }
+        return "So lan xuat hien " + word + " la: " + result;
+    }
+    alert(checkK())
+</script>
+</body>
+</html>

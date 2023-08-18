@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sortArr(){
+        let arrL = +prompt("Nhap vao do dai cua mang")
+        let arr =[]
+        for(let i = 0; i<arrL;i++){
+            arr[i] = +prompt("Nhap du lieu cho mang")
+        }
+        let first = 0;
+        let last = arrL - 1;
+        while (first<last){
+            let temp = arr[first]
+            arr[first] = arr[last]
+            arr[last] = temp
+            first++
+            last--
+        }
+        return "mang sau khi dao nguoc la: " + arr
+    }
+    alert(sortArr())
+</script>
+</body>
+</html>

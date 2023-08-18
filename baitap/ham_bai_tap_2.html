@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Meter To Foot</td>
+        <td><input type = "text" id = "meter"/></td>
+        <td><button type="button" onclick="meterToFoot()" >Result</button></td>
+        <td><span id ="result1"></span></td>
+    </tr>
+    <tr>
+        <td>Foot to Meter</td>
+        <td><input type = "text" id = "foot"/></td>
+        <td><button type="button" onclick="footToMeter()" >Result</button></td>
+        <td><span id ="result2"></span></td>
+    </tr>
+</table>
+<script>
+    function meterToFoot(){
+        let meter = + document.getElementById("meter").value * 3.279;
+        document.getElementById("result1").innerHTML = meter;
+    }
+
+    function footToMeter(){
+        let foot = + document.getElementById("foot").value * 0.305;
+        document.getElementById("result2").innerHTML = foot;
+    }
+</script>
+</body>
+</html>

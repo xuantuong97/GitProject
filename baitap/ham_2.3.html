@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tinhGiaiThua (n){
+        if (n===1){
+            return 1
+        }
+        else {
+            return n*tinhGiaiThua(n-1)
+        }
+    }
+    let n = +prompt("nhap vao so n")
+    alert( "Giai thua cua " + n + " la " + tinhGiaiThua(n))
+</script>
+</body>
+</html>

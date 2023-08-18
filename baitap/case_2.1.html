@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let result=""
+    let n = +prompt("nhap n")
+    for(let i = 1; i<=n; i++){
+        if(i===1 || i===n){
+            for(let j=1; j<=i; j++){
+                result += "*"
+            }
+            result+= "<br>"
+        }
+        else{
+            let space = "";
+            for(let k =1; k<=i-2;k++){
+                space += "&nbsp&nbsp"
+            }
+            result += "*"+space +"*<br>"
+        }
+    }
+    document.write(result)
+</script>
+</body>
+</html>
