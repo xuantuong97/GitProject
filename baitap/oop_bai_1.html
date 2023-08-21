@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="250px" ></canvas>
+<br>
+<div id="result"></div>
+<script>
+    class Rectangle{
+        constructor(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+        setLength(length){
+            this.length = length
+        }
+        setWidth(width){
+            this.length = width
+        }
+        perimeter(){
+            return 2*(this.length + this.width)
+        }
+        area(){
+            return this.length * this.width
+        }
+        show(){
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.moveTo(5, 5);
+            ctx.lineTo(this.length * 50, 5);
+            ctx.moveTo(5, 5);
+            ctx.lineTo(5, this.width *50);
+            ctx.moveTo(this.length * 50, 5);
+            ctx.lineTo(this.length * 50, this.width *50 );
+            ctx.lineTo(5, this.width *50);
+            ctx.lineTo(this.length * 50, this.width *50 );
+            ctx.stroke();
+        }
+    }
+    let rec = new Rectangle(10,3)
+    rec.show()
+    document.getElementById("result").innerHTML = ("Chu vi: "+rec.perimeter()+ " Dien tich: "+ rec.area())
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    class Phone{
+        constructor(name, battery, draft, inbox, outbox, status) {
+            this.name = name;
+            this.battery = battery;
+            this.draft = draft;
+            this.inbox = inbox;
+            this.outbox = outbox;
+            this.status = status;
+        }
+        checkStatus(){
+            if(this.status === "ON"){
+                document.write("Dien thoai dang bat")
+            }
+            else {
+                document.write("Dien thoai dang tat")
+            }
+            this.battery --
+        }
+        onOff(){
+            if(this.status === "OFF"){
+                this.status = "ON"
+                alert("Dien thoai da duoc bat")
+            }
+            else{
+                this.status = "OFF"
+                alert("Dien thoai da tat")
+            }
+        }
+        charge(){
+            this.battery = 80;
+        }
+        setDraft(){
+            if(this.status === "ON") {
+                let draft = prompt("Nhap tin nhan nhap")
+                this.draft.push(draft);
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+        sendMes(phone){
+            if(this.status === "ON") {
+                let outbox = prompt("Nhap tin nhan can gui")
+                this.outbox.push(outbox);
+                phone.inbox.push(outbox)
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+        checkOutbox(){
+            if(this.status === "ON") {
+                document.write("Hop thu di: "+ this.outbox +"<br>")
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+        checkInbox(){
+            if(this.status === "ON") {
+                document.write("Hop thu den: "+ this.inbox +"<br>")
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+        checkDraft(){
+            if(this.status === "ON") {
+                document.write("Hop thu nhap: "+ this.draft +"<br>")
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+        checkInfo(){
+            if(this.status === "ON") {
+                document.write("Name: "+ this.name + " Battery: "+this.battery+ " %<br>")
+                this.battery--
+            }
+            else{
+                alert("Ban can bat dien thoai")
+            }
+        }
+
+    }
+
+    let iphone = new Phone("iphone 13", 50,[],[],[], "ON")
+    let samsung = new Phone("Samsung S20",50, [],[],[],"ON")
+
+    iphone.checkInfo()
+    iphone.sendMes(samsung)
+    iphone.checkOutbox()
+    samsung.checkInbox()
+    iphone.checkInfo()
+</script>
+</body>
+</html>

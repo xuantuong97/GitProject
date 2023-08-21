@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(temp) {
+            this.temp = temp
+        }
+        cToF(){
+            if(this.temp>=-273){
+                return "Nhiet do chuyen doi sang do F la: "+ (this.temp *9/5 +32) + "<br>";
+            }
+            else{
+                return "Nhiet do khong phu hop"
+            }
+        }
+        cToK(){
+            if(this.temp>=-273){
+                return "Nhiet do chuyen doi sang do K la: "+ (this.temp + 273);
+            }
+            else{
+                return "Nhiet do khong phu hop"
+            }
+        }
+    }
+    let temp = new Temperature(25)
+    document.write(temp.cToF())
+    document.write(temp.cToK())
+</script>
+</body>
+</html>

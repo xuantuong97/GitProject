@@ -7,30 +7,19 @@
 </head>
 <body>
 <script>
-    let n=+prompt("nhap n")
-    let result ="";
-    for(let h=1;h<=n;h++){
-        if(h===1||h===5){
-            for(let i = 1;i<=n; i++){
-                for(let k =1;k<=n-i;k++){
-                    result+= "&nbsp&nbsp"
-                }
-                for(let j=1;j<=2*i-1;j++){
-                    result+="*"
-                }
-                result+="<br>"
-            }
-        }
-        else{
-            for(let i = 1;i<=n; i++){
-                for(let k =1;k<=n-i;k++){
-                    result+= "&nbsp&nbsp"
-                }
 
-            }
-        }
-    }
-    document.write(result)
+        let numberA = prompt("Nhập số thứ nhất");
+        let numberB = prompt("Nhập số thứ hai");
+
+    //     function swap(a, b) {
+    //     let temp = a;
+    //     a = b;
+    //     b = temp;
+    //     return [a, b];
+    // }
+        document.write("a = " +numberA + "b= " +numberB +"<br>");
+        [numberA, numberB ] = swap(numberA, numberB);
+        document.write("a = " +numberA + "b= " +numberB);
 </script>
 </body>
 </html>
