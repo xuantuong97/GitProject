@@ -5,38 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
 <script>
-   class Circle{
-       constructor() {
-           this.x = Math.random() * window.innerWidth;
-           this.y = Math.random() * window.innerHeight;
-           this.radius =  Math.floor(Math.random() * 80);
-       }
-       getRandomHex(){
-           return Math.floor(Math.random()*225)
-       }
-       getRandomColor(){
-           let red = this.getRandomHex();
-           let blue = this.getRandomHex();
-           let green = this.getRandomHex();
-           return "rgb("+red+","+blue+","+green+")";
-       }
-       createCircle(){
-           let ctx = document.getElementById("myCanvas").getContext("2d");
-           let color = this.getRandomColor();
-           ctx.beginPath();
-           ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-           ctx.fillStyle = color;
-           ctx.fill()
-
-       }
-   }
-   for(let i =1;i<30;i++) {
-       let circle = new Circle();
-
-       circle.createCircle();
-   }
+    let demo = prompt("nhap chuoi")
+    let arr1 = [];
+    demo = demo.toLowerCase()
+    for (let i=0; i<demo.length;i++){
+        if(demo[i] ===" "&& demo[i+1]===" "){
+            arr1[i] =""
+        }
+        else{arr1[i] = demo[i]}
+    }
+    if(arr1[0]==="" || arr1[0]===" "){
+        for(let j =0; j<arr1.length-1; j++){
+            if(arr1[j]===" "&& arr1[j+1] !==" "){
+                arr1[j+1] = arr1[j+1].toUpperCase()
+            }
+        }
+    }
+    else {
+        arr1[0] = arr1[0].toUpperCase()
+        for(let j =0; j<arr1.length-1; j++){
+            if(arr1[j]===" "&& arr1[j+1] !==" "){
+                arr1[j+1] = arr1[j+1].toUpperCase()
+            }
+        }
+    }
+console.log(arr1.join(""))
 </script>
 </body>
 </html>
