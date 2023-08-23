@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function standardStr(){
+        let demo = prompt("nhap chuoi can chuan hoa")
+        let arr1 = [];
+        demo = demo.toLowerCase()
+        for (let i=0; i<demo.length;i++){
+            if(demo[i] ===" "&& demo[i+1]===" "){
+                arr1[i] =""
+            }
+            else{arr1[i] = demo[i]}
+        }
+        if(arr1[0]==="" || arr1[0]===" "){
+            for(let j =0; j<arr1.length-1; j++){
+                if(arr1[j]===" "&& arr1[j+1] !==" "){
+                    arr1[j+1] = arr1[j+1].toUpperCase()
+                }
+            }
+        }
+        else {
+            arr1[0] = arr1[0].toUpperCase()
+            for(let j =0; j<arr1.length-1; j++){
+                if(arr1[j]===" "&& arr1[j+1] !==" "){
+                    arr1[j+1] = arr1[j+1].toUpperCase()
+                }
+            }
+        }
+       // document.write(arr1.join(""))
+        console.log(arr1)
+    }
+    standardStr()
+</script>
+</body>
+</html>

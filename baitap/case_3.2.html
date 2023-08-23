@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrA = [7,2,5,4,6,3,5,3];
+    let arrB =[7,2,88,9,9,19,-1,5,4,6,7,8,8,8,666,3,5,3]
+    let arrC =[];
+    //Viết hàm kiểm tra 1 giá trị có xuất hiện trong mảng không
+    function checkIn(arr,k){
+        let result = false;
+        for(let i =0; i<arr.length;i++){
+            if(arr[i] === k){
+                result = true;
+                break;
+            }
+        }
+        return result
+    }
+
+    for(let j =0; j<arrB.length; j++){
+        if(checkIn(arrA,arrB[j])===false && checkIn(arrC,arrB[j]) ===false){
+            arrC.push(arrB[j])
+        }
+    }
+    //Sắp xếp
+    for(let i =0; i<arrC.length - 1;i++){
+        let temp;
+        for(let j = i+1; j<arrC.length; j++){
+            if(arrC[i]>arrC[j]){
+                temp = arrC[i];
+                arrC[i] = arrC[j];
+                arrC[j] = temp;
+            }
+        }
+    }
+    document.write(arrC)
+</script>
+</body>
+</html>

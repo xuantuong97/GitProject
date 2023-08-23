@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrL = +prompt("Nhap do dai cua mang A")
+    let arrA = new Array(arrL)
+    let arrB = new Array(arrL)
+    for(let i =0; i<arrL;i++){
+        arrA[i] = +prompt("Nhap gia tri cho mang A")
+    }
+    arrB[0] = arrA[0];
+    for(let j=1; j<arrL;j++){
+        arrB[j] = arrA[j]+ arrB[j-1]
+    }
+    document.write("Mang A: "+arrA +"<br>")
+    document.write("Mang B: "+ arrB)
+</script>
+</body>
+</html>

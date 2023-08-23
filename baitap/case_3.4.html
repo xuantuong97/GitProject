@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sum =0;
+    let i;
+    do {
+
+        i = +prompt("1. Cafe\n2. Cam vắt\n3. Nước ép cà rốt\n4. Nước ép cà chua\n5. Nước lọc\n6. Nước dừa\n7. Thoát")
+        switch (i) {
+            case 1:
+            case 6:
+                let cf = +prompt("Giá 20.000. Nhập vào số lượng")
+                sum += cf * 20000;
+                break;
+            case 2:
+            case 3:
+            case 4:
+                let cc = +prompt("Giá 25.000. Nhập vào số lượng")
+                sum += cc * 25000;
+                break;
+            case 5:
+                let nl = +prompt("Giá 15.000. Nhập vào số lượng")
+                sum += nl * 15000;
+                break;
+            case 7: break;
+            default: alert("Nhap khong dung yeu cau")
+        }
+    }
+    while (i !== 7)
+
+    alert("Số tiền cần thanh toán "+ sum)
+
+</script>
+</body>
+</html>

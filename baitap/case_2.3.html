@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let result = "";
+    let h = +prompt("nhap vao chieu cao")
+    for(let i=1; i<=h; i++){
+        if(i===1 || i===h){
+            for(let j =1; j<= h-i;j++){
+                result+="&nbsp&nbsp"
+            }
+            for(let k =1; k<=2*i-1;k++){
+                result+="*"
+            }
+            result+="<br>"
+        }
+        else {
+            for(let j =1; j<= h-i;j++){
+                result+="&nbsp&nbsp"
+            }
+            result +="*"
+            for(let k =1; k<=2*i-3;k++){
+                result+="&nbsp&nbsp"
+            }
+            result +="*<br>"
+        }
+    }
+    document.write(result)
+</script>
+</body>
+</html>
