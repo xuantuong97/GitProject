@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkNumber(number){
+        let result = true;
+        for(let i =2; i<=number/2;i++){
+            if(number%i===0){
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+    function printNumber(m,n){
+        let arrNumber = [];
+        let arrM = new Array(m)
+        for(let i =0; i<m;i++){
+            arrM[i] = new Array(n);
+            for(let j =0;j<n; j++){
+                arrM[i][j] = +prompt("Nhap gia tri cho phan tu ["+i+"]["+j+"]")
+                if(checkNumber(arrM[i][j])){
+                    arrNumber.push(arrM[i][j])
+                }
+            }
+        }
+        return "Mang 2 chieu co "+arrNumber.length + " so nguyen to. Cac gia tri la: "+arrNumber.join(",")
+    }
+    let m = +prompt("Nhap vao so hang")
+    let n = +prompt("Nhap vao so cot")
+    document.write(printNumber(m,n))
+</script>
+</body>
+</html>

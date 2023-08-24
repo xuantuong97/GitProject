@@ -5,36 +5,34 @@
     <title>Title</title>
 </head>
 <body>
+            <ol>
+                <li>Coffee</li>
+                <li>Cam Vắt</li>
+                <li>Nước Ép Cà Rốt</li>
+                <li>Nước Ép Cà Chua</li>
+                <li>Nước Lọc</li>
+                <li>Nước Dừa</li>
+                <li>Thoát</li>
+                <li style="list-style-type: none "><button type="button" onclick="orderDrink()">Chọn món</button></li>
+            </ol>
 <script>
-    let sum =0;
-    let i;
-    do {
-
-        i = +prompt("1. Cafe\n2. Cam vắt\n3. Nước ép cà rốt\n4. Nước ép cà chua\n5. Nước lọc\n6. Nước dừa\n7. Thoát")
-        switch (i) {
-            case 1:
-            case 6:
-                let cf = +prompt("Giá 20.000. Nhập vào số lượng")
-                sum += cf * 20000;
+    function orderDrink() {
+        let price = [15000, 20000, 20000, 15000, 10000, 25000];
+        let total = 0
+        do {
+            let choose = +prompt("Chọn đồ uống");
+            if (choose < 7 && choose >= 1) {
+                let quantity = +prompt('Nhập số lượng')
+                total += price[choose - 1] * quantity;
+            } else if (choose === 7) {
+                alert('Tổng tiền ' + total)
                 break;
-            case 2:
-            case 3:
-            case 4:
-                let cc = +prompt("Giá 25.000. Nhập vào số lượng")
-                sum += cc * 25000;
-                break;
-            case 5:
-                let nl = +prompt("Giá 15.000. Nhập vào số lượng")
-                sum += nl * 15000;
-                break;
-            case 7: break;
-            default: alert("Nhap khong dung yeu cau")
+            } else {
+                alert("Dữ liệu không phù hợp")
+            }
         }
+        while (true);
     }
-    while (i !== 7)
-
-    alert("Số tiền cần thanh toán "+ sum)
-
 </script>
 </body>
 </html>

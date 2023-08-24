@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function commonCharacterCount(str1, str2){
+        let arr1 = str1.split("");
+        let arr2 = str2.split("");
+        let count = 0;
+        for(let i =0; i<arr1.length; i++){
+            if(arr2.includes(arr1[i])){
+                count++
+                arr2[arr2.indexOf(arr1[i])] = "";
+            }
+        }
+        return "So luong ky tu chung giua 2 chuoi: "+ count;
+    }
+    let str1 = prompt("Nhap chuoi 1")
+    let str2 = prompt("Nhap chuoi 2")
+    document.write(commonCharacterCount(str1,str2))
+</script>
+</body>
+</html>

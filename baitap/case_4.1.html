@@ -7,8 +7,9 @@
 <body>
 <script>
     function standardStr(){
-        let demo = prompt("nhap chuoi can chuan hoa")
+        let inputStr = prompt("nhap chuoi can chuan hoa")
         let arr1 = [];
+        let demo = inputStr
         demo = demo.toLowerCase()
         for (let i=0; i<demo.length;i++){
             if(demo[i] ===" "&& demo[i+1]===" "){
@@ -31,8 +32,22 @@
                 }
             }
         }
-       // document.write(arr1.join(""))
-        console.log(arr1)
+       let result = arr1.join("")
+       console.log("Chuoi truoc khi duoc chuan hoa: "+ inputStr)
+        console.log("Chuoi sau khi chuan hoa: " +result)
+        console.log("Tu dai nhat trong chuoi la: "+ getLongest(result))
+    }
+    // function lay ra tu dai nhat.
+    function getLongest(inStr){
+        let arrStr = inStr.split(" ")
+        let longestStr = arrStr[0];
+        for(let i =1; i<arrStr.length; i++){
+            if(arrStr[i].length>longestStr.length){
+                longestStr = arrStr[i]
+            }
+        }
+        return longestStr;
+
     }
     standardStr()
 </script>

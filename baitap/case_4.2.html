@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputStr = prompt("Nhap chuoi can kiem tra")
+    let arr1 = inputStr.split("")
+    let arr2 =[]
+    for(let i =0; i<arr1.length;i++){
+        if(!arr2.includes(arr1[i])){
+            arr2.push(arr1[i])
+        }
+    }
+    console.log("Chuoi co "+arr2.length+ " ky tu khac nhau la: "+ arr2.join(","))
+</script>
+</body>
+</html>

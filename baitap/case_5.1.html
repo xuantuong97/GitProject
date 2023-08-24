@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumEvenNumber(m,n){
+            let arr2ndDi = new Array(m)
+            let sum = 0;
+            for(let i =0; i<m; i++){
+                arr2ndDi[i] = new Array(n)
+                for(let j=0; j<n; j++){
+                    arr2ndDi[i][j]= +prompt("Nhap gia tri cho phan tu ["+i+"]["+j+"]")
+                    if(arr2ndDi[i][j]%2===0){
+                        sum+=arr2ndDi[i][j]
+                    }
+                }
+            }
+            return sum;
+    }
+    let m = +prompt("Nhap vao so hang")
+    let n = +prompt("Nhap vao so cot")
+    document.write("Tong cac so chan trong ma tran la: "+ sumEvenNumber(m,n))
+</script>
+</body>
+</html>
