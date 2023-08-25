@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><button type = button onclick="addStudent()">Thêm mới học viên</button></td>
+        <td><button type = button onclick="editInfo()">Sửa thông tin học viên</button></td>
+        <td><button type = button onclick="removeStudent()">Xoá học viên</button></td>
+    </tr>
+</table>
+<br>
+<div id="createTable">
+
+</div>
+<script>
+    class Student{
+        constructor(idHV, nameHV, classHV, emailHV, dOB, module) {
+            this.idHV = idHV;
+            this.nameHV = nameHV;
+            this.classHV = classHV;
+            this.emailHV = emailHV;
+            this.dOB = dOB;
+            this.module = module;
+        }
+        setId(idHV){
+            this.idHV = idHV;
+        }
+        setName (name){
+            this.nameHV = name;
+        }
+        setClass (classHV){
+            this.classHV = classHV;
+        }
+        setEmail (email){
+            this.emailHV = email;
+        }
+        setDOB (dob){
+            this.dOB = dob;
+        }
+        setModule (module){
+            this.module = module
+        }
+    }
+    let arrStudent = [];
+    let arrIdHV = []
+    let student1 = new Student("A0001","Xuân Tưởng","C07","tt@gmail.com","10/02/1997","1")
+    let student2 = new Student("A0002","Tiểu Thơ","C07","yt@gmail.com","10/02/1998","1")
+    arrStudent.push(student1,student2)
+    arrIdHV.push(student1.idHV, student2.idHV)
+    displayTable()
+    function displayTable(){
+        let result = `<table border="1" cellspacing="0">
+    <tr>
+        <th>Mã học viên</th>
+        <th>Tên</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Ngày sinh</th>
+        <th>Module</th>
+    </tr>`
+        for (let i =0; i< arrStudent.length; i++){
+            result += `<tr>
+        <td>${arrStudent[i].idHV}</td>
+        <td>${arrStudent[i].nameHV}</td>
+        <td>${arrStudent[i].classHV}</td>
+        <td>${arrStudent[i].emailHV}</td>
+        <td>${arrStudent[i].dOB}</td>
+        <td>${arrStudent[i].module}</td>
+    </tr>`
+
+        }
+        result += `</table>`
+        document.getElementById("createTable").innerHTML = result
+    }
+
+    function addStudent(){
+        let idHV = prompt("Nhap ID" +
+            " hoc vien").toUpperCase()
+        if (checkID(idHV)&& (!arrIdHV.includes(idHV))){
+            let nameHV = prompt("Nhap ten hoc vien")
+            let classHV = prompt("Nhap lop")
+            let emailHV = prompt("Nhap email")
+            let dOB = prompt("Nhap ngay sinh")
+            let module = prompt("Nhap module")
+            let student = new Student(idHV, nameHV, classHV, emailHV, dOB, module)
+            arrStudent.push(student)
+            arrIdHV.push(student.idHV)
+            displayTable()
+        }
+        else if(arrIdHV.includes(idHV)){
+            alert("ID da ton tai, vui long nhap lai")
+        }
+        else {
+            alert("ID chua phu hop, can co dang HV-XXXX ( với XXXX là 4 chữ số )")
+        }
+    }
+    function removeStudent(){
+        let idHV = prompt("Moi ban nhap ID hoc vien").toUpperCase()
+        if(arrIdHV.includes(idHV)){
+            let index = arrIdHV.indexOf(idHV)
+            arrStudent.splice(index,1)
+        }
+        else {
+            alert("Ma hoc vien khong ton tai")
+        }
+        displayTable()
+    }
+
+    function editInfo(){
+        let idHV = prompt("Moi ban nhap ID hoc vien can chinh sua thong tin").toUpperCase()
+        if(arrIdHV.includes(idHV)){
+            let index = arrIdHV.indexOf(idHV)
+            do {
+                let choose = + prompt("1. Chỉnh sửa họ tên" +
+                    "\n2. Chỉnh sửa lớp\n3. Chỉnh sửa email" +
+                    "\n4. Chỉnh sửa ngày sinh\n5. Chỉnh sửa module" +
+                    "\n6. Thoát")
+                if(choose ===1){
+                    let nameHV = prompt("Nhap ho ten chinh sua")
+                    arrStudent[index].setName(nameHV)
+                }
+                else if(choose===2){
+                    let classHV = prompt("Nhap lop chinh sua")
+                    arrStudent[index].setClass(classHV)
+                }
+                else if(choose===3){
+                    let email = prompt("Nhap email chinh sua")
+                    arrStudent[index].setEmail(email)
+                }
+                else if(choose===4){
+                    let dOB = prompt("Nhap ngay sinh chinh sua")
+                    arrStudent[index].setDOB(dOB)
+                }
+                else if(choose===5){
+                    let module = prompt("Nhap module chinh sua")
+                    arrStudent[index].setModule(module)
+                }
+                else if(choose===6){
+                    alert("Hoan tat chinh sua")
+                    break;
+                }
+                else {
+                    alert("Hay chon thao tao phu hop")
+                }
+            }
+            while (true)
+        }
+        else {
+            alert("ID hoc vien khong ton tai")
+        }
+        displayTable()
+    }
+
+    function checkID(idHV){
+        let condition = (idHV.length === 7) && (idHV[2]==="-") && (!isNaN(idHV[3]))
+            && (!isNaN(idHV[4]))&& (!isNaN(idHV[5]))&& (!isNaN(idHV[6]))
+        return condition
+    }
+</script>
+</body>
+</html>
