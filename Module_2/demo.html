@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script>
+    class Fruit {
+        constructor(fruitID, fruitName, fruitType, fruitPrice) {
+            this.fruitID = fruitID;
+            this.fruitName = fruitName;
+            this.fruitType = fruitType;
+            this.fruitPrice = fruitPrice;
+        }
+
+        getID() {
+            return this.fruitID;
+        }
+
+        getName() {
+            return this.fruitName;
+        }
+
+        getType() {
+            return this.fruitType;
+        }
+
+        getPrice() {
+            return this.fruitPrice;
+        }
+
+        setID(fruitID) {
+            this.fruitID = fruitID;
+        }
+
+        setName(fruitName) {
+            this.fruitName = fruitName;
+        }
+
+        setType(fruitType) {
+            this.fruitType = fruitType;
+        }
+
+        setPrice(fruitPrice) {
+            this.fruitPrice = fruitPrice;
+        }
+    }
+
+    let fruit1 = new Fruit("001", "Apple", "A", 25000)
+    let fruit2 = new Fruit("002", "Orange", "S", 15000)
+    let fruit3 = new Fruit("003", "Banana", "S", 25000)
+    let fruit4 = new Fruit("004", "Banana", "S", 2000)
+    let arrOfFruit = [fruit1, fruit2, fruit3, fruit4]
+
+    function displayTable() {
+        let stringOfTable = `<table border="1" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price</th>
+        </tr>`
+        for (let i = 0; i < arrOfFruit.length; i++) {
+            stringOfTable +=
+                `<tr>
+                    <td>${arrOfFruit[i].getID()}</td>
+                    <td>${arrOfFruit[i].getName()}</td>
+                    <td>${arrOfFruit[i].getType()}</td>
+                    <td>${arrOfFruit[i].getPrice()}</td>
+                </tr>`
+        }
+
+        stringOfTable += `</table>`
+        document.getElementById("root").innerHTML = stringOfTable
+    }
+
+    sortArr(arrOfFruit)
+    displayTable()
+
+    function sortArr(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i].fruitPrice < arr[j].fruitPrice) {
+                    let temp = arr[i]
+                    arr[i] = arr[j]
+                    arr[j] = temp
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
