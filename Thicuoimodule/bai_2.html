@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    do{
+        let arrLength = +prompt("Nhập vào số lượng phần tử của mảng");
+        if (Number.isInteger(arrLength) && arrLength > 0 && arrLength <=20){
+            let arrNumber = new Array(arrLength);
+            let sumOfEven = 0;
+            let sumOfOod = 0;
+            for ( let i = 0; i < arrLength; i++){
+                arrNumber[i] = +prompt("Nhập giá trị cho các phần tử của mạng");
+                if (arrNumber[i]%2 === 0){
+                    sumOfEven += arrNumber[i];
+                }
+                else {
+                    sumOfOod += arrNumber[i];
+                }
+            }
+            let result = sumOfEven - sumOfOod;
+            document.write("Tổng các số chẵn trừ tổng các số lẻ là: " + result);
+            break;
+        }
+        else {
+            alert("Yêu cầu độ dài mảng 0 < n <= 20 và nguyên");
+        }
+    }
+    while (true);
+
+</script>
+</body>
+</html>

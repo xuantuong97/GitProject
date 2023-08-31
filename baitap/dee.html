@@ -2,49 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+
 <body>
+<div id="root">
+
+</div>
 
 </body>
-<script>
-
-        function checkDay(){
-
-            do {
-                let day = prompt("Nhap gia tri phu hop")
-                let condition1 = day.length === 10
-                let condition2 = day[2] === "/" && day[5] === "/"
-                let condition3 = +day.slice(0,2) >= 1 && +day.slice(0,2) <= 31
-                let condition4 = +day.slice(3,5) >= 1 && +day.slice(3,5) <= 12
-                let condition5 = !isNaN(day[0]) && !isNaN(day[1]) &&!isNaN(day[3]) &&!isNaN(day[4])
-                    &&!isNaN(day[6]) &&!isNaN(day[7]) &&!isNaN(day[8]) &&!isNaN(day[9])
-                if (condition1 && condition2 && condition3 && condition4 && condition5){
-                    switch (+day.slice(3,5)) {
-                        case 4 :
-                        case 6 :
-                        case 9 :
-                        case 11: if(+day.slice(0,2) > 30){
-                            alert("Ngay k phu hop")
-                        }
-                        else {return day}  break;
-                        case 2 : if (+day.slice(0,2) > 29){
-                            alert("Ngay k phu hop")
-                        }
-                        else {return day} break;
-                        default: return day
-                    }
-                }
-                else {
-                    alert("Ngay k phu hop")
-                }
-
-            }
-            while (true)
-
-        }
-        checkDay()
-
-
-</script>
 </html>
+

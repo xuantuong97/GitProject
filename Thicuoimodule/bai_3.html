@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let oldString = prompt("Nhập vào chuỗi kí tự cần chuyển đổi");
+    let arrOfChar = oldString.split("");
+    for (let i = 0; i < arrOfChar.length; i++){
+        if (arrOfChar[i] === arrOfChar[i].toLowerCase()){
+            arrOfChar[i] = arrOfChar[i].toUpperCase();
+        }
+        else {
+            arrOfChar[i] = arrOfChar[i].toLowerCase();
+        }
+    }
+    let newString = arrOfChar.join("");
+    console.log("Chuỗi trước khi chuyển đổi là: " + oldString);
+    console.log("Chuỗi sau khi chuyển đổi là : " + newString);
+</script>
+</body>
+</html>

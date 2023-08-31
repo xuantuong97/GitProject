@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function findN(n){
+        if (n===1 || n===2){
+            return 1
+        }
+        else {
+            let f1 = 1
+            let f2 = 1
+            let fN = 0
+            for (let i = 3; i<=n; i++){
+                fN = f1+f2
+                f1 = f2
+                f2 = fN
+            }
+            return fN
+        }
+    }
+
+    function checkF(n){
+        let result = false
+        let f = 1
+        while (n >= findN(f)){
+            if (n=== findN(f)){
+                result = true
+            }
+            f++
+        }
+        return result
+    }
+    console.log(findN(35))
+    console.log(checkF(22))
+</script>
+</body>
+</html>
