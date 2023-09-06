@@ -5,8 +5,8 @@ public class ConvertCurrency {
         Scanner scanner = new Scanner(System.in);
         final int rate = 23000;
         System.out.println("Enter the amount that you need to convert (USD)");
-        float uSD = scanner.nextFloat();
-        float vND = rate * uSD;
-        System.out.println("The result is: " + vND + " VND");
+        float usd = scanner.nextFloat();
+        float vnd = rate * usd;
+        System.out.println("The result is: " + vnd + " VND");
     }
 }
