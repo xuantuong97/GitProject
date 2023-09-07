@@ -27,7 +27,7 @@ public class SumOfColumn {
                     break;
                     }
                 else {
-                    System.out.printf("The column need to be from 0 to %d, please enter again\n", column);
+                    System.out.printf("The column need to be from 0 to %d, please enter again\n", column - 1);
                     indexOfColumn = scanner.nextInt();
                 }
             }
