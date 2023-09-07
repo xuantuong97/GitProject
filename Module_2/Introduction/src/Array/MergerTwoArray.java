@@ -1,9 +1,6 @@
 package Array;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
-public class MergeTwoArray {
+public class MergerTwoArray {
     public static void main(String[] args) {
         int[] arrNumber1 = {1,2,3,4,6,7,8,0};
         int[] arrNumber2 = {10,11,23,34,12,15};

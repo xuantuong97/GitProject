@@ -1,7 +1,7 @@
 package Array;
 import java.util.Scanner;
 
-public class RemoveValue {
+public class RemovalValue {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] numberArrOld = {1, 2, 2, 0, 0, 3, 4, 5, 6, 7, 8, 9};

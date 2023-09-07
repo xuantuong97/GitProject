@@ -1,7 +1,7 @@
 package Array;
 import java.util.Scanner;
 
-public class InsertNumber {
+public class InsertionNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] arrNumber = {1,2,3,4,5,6,0,0,0,0};
