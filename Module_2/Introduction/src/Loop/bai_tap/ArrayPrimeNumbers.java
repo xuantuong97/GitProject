@@ -7,21 +7,16 @@ public class ArrayPrimeNumbers {
         int numberOfPrime = scanner.nextInt();
         int number = 2;
         int count = 0;
+        boolean check;
         System.out.printf("The %d first prime numbers \n", numberOfPrime);
         while (count < numberOfPrime){
-            boolean check = true;
-            if (number < 2){
-                check = false;
-                number ++;
-            }
-            else {
-                for (int i = 2; i <= Math.sqrt(number); i++){
+            check = true;
+            for (int i = 2; i <= Math.sqrt(number); i++){
                     if (number % i == 0){
                         check = false;
                         break;
                     }
                 }
-            }
             if (check){
                 System.out.println(number);
                 count ++;
