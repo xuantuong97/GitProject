@@ -7,7 +7,7 @@ public class InsertNumber {
         int[] arrNumber = {1,2,3,4,5,6,0,0,0,0};
         System.out.println("Enter the number you want to insert");
         int number = scanner.nextInt();
-        System.out.println("Enter a location");
+        System.out.println("Enter the location");
         int location = scanner.nextInt();
         if (location >= 0 && location < arrNumber.length){
             arrNumber[arrNumber.length - 1] = number;

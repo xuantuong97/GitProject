@@ -5,17 +5,13 @@ public class SumOfDiagonal {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the size of square matrix");
         int size = scanner.nextInt();
-        if (size >= 2){
+        if (size > 0){
             float[][] squareMatrix = new float[size][size];
+            float sum = 0;
             for(int i = 0; i<size; i++) {
                 for (int j = 0; j < size; j++) {
                     System.out.printf("Enter value of [%d][%d]\n", i, j);
                     squareMatrix[i][j] = scanner.nextFloat();
-                }
-            }
-            float sum = 0;
-            for(int i = 0; i<size; i++){
-                for (int j=0; j<size; j++){
                     if(i == j){
                         sum += squareMatrix[i][j];
                     }

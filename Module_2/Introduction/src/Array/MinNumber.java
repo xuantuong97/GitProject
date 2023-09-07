@@ -5,17 +5,22 @@ public class MinNumber {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter size of array");
         int size = scanner.nextInt();
-        int[] arrNumber = new int[size];
-        for (int i =0; i<size; i++){
-            System.out.printf("Enter value of [%d]\n",i);
-            arrNumber[i] = scanner.nextInt();
-        }
-        int minNumber = arrNumber[0];
-        for (int i = 1; i<size; i++){
-            if(arrNumber[i] < minNumber){
-                minNumber = arrNumber[i];
+        if (size > 0){
+            int[] arrNumber = new int[size];
+            for (int i =0; i<size; i++){
+                System.out.printf("Enter value of [%d]\n",i);
+                arrNumber[i] = scanner.nextInt();
             }
+            int minNumber = arrNumber[0];
+            for (int i = 1; i<size; i++){
+                if(arrNumber[i] < minNumber){
+                    minNumber = arrNumber[i];
+                }
+            }
+            System.out.println("The min number is: " + minNumber);
         }
-        System.out.println("The min number is: " + minNumber);
+        else {
+            System.out.println("The size of array is not valid");
+        }
     }
 }
