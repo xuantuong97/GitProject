@@ -9,11 +9,14 @@ public class Main {
         fan1.setOn(true);
         System.out.println(fan1.toString());
 
+        System.out.println();
+
         Fan fan2 = new Fan();
-        fan1.setSpeed(fan1.getMEDIUM());
-        fan1.setRadius(5);
-        fan1.setColor("blue");
-        fan1.setOn(false);
+        fan2.setSpeed(fan2.getMEDIUM());
+        fan2.setRadius(5);
+        fan2.setColor("blue");
+        fan2.setOn(false);
         System.out.println(fan2.toString());
+
     }
 }
