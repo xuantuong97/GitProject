@@ -1,4 +1,4 @@
-package module_2.inheritance_bai_3;
+package module_2.inheritance.inheritance_bai_3;
 
 public class MainTest {
     public static void main(String[] args) {

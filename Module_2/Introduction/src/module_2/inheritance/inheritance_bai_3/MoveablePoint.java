@@ -1,4 +1,4 @@
-package module_2.inheritance_bai_3;
+package module_2.inheritance.inheritance_bai_3;
 
 public class MoveablePoint extends Point{
     private float xSpeed = 0.0f;
