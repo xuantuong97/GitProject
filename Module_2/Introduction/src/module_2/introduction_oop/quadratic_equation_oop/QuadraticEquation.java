@@ -1,4 +1,4 @@
-package quadratic_equation_oop;
+package module_2.introduction_oop.quadratic_equation_oop;
 
 public class QuadraticEquation {
     private double aArgument;

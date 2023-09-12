@@ -1,6 +1,4 @@
-package stop_watch_oop;
-
-import java.util.Arrays;
+package module_2.introduction_oop.stop_watch_oop;
 
 public class Main {
     public static void main(String[] args) {

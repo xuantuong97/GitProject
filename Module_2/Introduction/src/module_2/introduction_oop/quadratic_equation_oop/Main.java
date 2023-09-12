@@ -1,6 +1,4 @@
-package quadratic_equation_oop;
-
-import quadratic_equation_oop.QuadraticEquation;
+package module_2.introduction_oop.quadratic_equation_oop;
 
 import java.util.Scanner;
 public class Main {

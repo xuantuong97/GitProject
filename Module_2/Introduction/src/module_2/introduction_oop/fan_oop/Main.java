@@ -1,4 +1,4 @@
-package fan_oop;
+package module_2.introduction_oop.fan_oop;
 
 public class Main {
     public static void main(String[] args) {

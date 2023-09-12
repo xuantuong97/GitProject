@@ -1,4 +1,4 @@
-package access_modifier;
+package module_2.access_modifier.access_modifier;
 
 public class TestCircle {
     public static void main(String[] args) {

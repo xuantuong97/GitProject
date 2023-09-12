@@ -1,6 +1,4 @@
-package stop_watch_oop;
-
-import Introduction_Java.Thuc_hanh.System_time;
+package module_2.introduction_oop.stop_watch_oop;
 
 public class StopWatch {
     private long startTime;

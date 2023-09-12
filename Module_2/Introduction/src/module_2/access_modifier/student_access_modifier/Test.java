@@ -1,6 +1,4 @@
-package student_access_modifier;
-
-import access_modifier.TestCircle;
+package module_2.access_modifier.student_access_modifier;
 
 public class Test {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package access_modifier;
+package module_2.access_modifier.access_modifier;
 
 public class Circle {
     private double radius = 1.0;
@@ -16,17 +16,11 @@ public class Circle {
         return radius;
     }
 
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public double getArea(){
         return Math.PI * radius * radius;
