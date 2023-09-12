@@ -19,7 +19,7 @@ public class Point3D extends Point2D{
     }
 
     public float[] getXYZ(){
-        float[] arrXYZ = {super.getX(), super.getY(), z};
+        float[] arrXYZ = {this.getX(), this.getY(), z};
         return arrXYZ;
     }
 
@@ -31,6 +31,6 @@ public class Point3D extends Point2D{
 
     @Override
     public String toString() {
-        return "(" + super.getX() + "; " + super.getY() + "; " + z + ")";
+        return "(" + this.getX() + "; " + this.getY() + "; " + z + ")";
     }
 }
