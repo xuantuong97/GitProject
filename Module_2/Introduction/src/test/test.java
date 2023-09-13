@@ -2,10 +2,7 @@ package test;
 
 public class test {
     public static void main(String[] args) {
-        Emp emp1 = new Emp();
-        Person person1 = emp1;
-        boolean a = (person1 instanceof Person);
-        System.out.println(a);
+        System.out.println((int)(Math.random() * 100));
 
 
 //        Person person2 = new Emp();
