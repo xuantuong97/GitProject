@@ -21,7 +21,7 @@ public class Main {
                 ((Rectangle) shape).resize(Math.random()*100);
                 System.out.println(shape.getArea());
             }
-            else if (shape instanceof Square){
+            else{
                 ((Square) shape).resize(Math.random()*100);
                 System.out.println(shape.getArea());
             }
