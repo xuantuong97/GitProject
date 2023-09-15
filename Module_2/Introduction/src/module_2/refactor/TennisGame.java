@@ -6,6 +6,8 @@ public class TennisGame {
     public static final String FIFTEEN = "Fifteen";
     public static final String THIRTY = "Thirty";
     public static final String FORTY = "Forty";
+    public static final String DEUCE = "Deuce";
+    public static final String ALL = "All";
     static String score = "";
     static int tempScore = 0;
 
@@ -33,19 +35,19 @@ public class TennisGame {
         switch (playerScore)
         {
             case 0:
-                score = "Love-All";
+                score = LOVE + DASH_CHAR + ALL;
                 break;
             case 1:
-                score = "Fifteen-All";
+                score = FIFTEEN + DASH_CHAR + ALL;
                 break;
             case 2:
-                score = "Thirty-All";
+                score = THIRTY + DASH_CHAR + ALL;
                 break;
             case 3:
-                score = "Forty-All";
+                score = FORTY + DASH_CHAR + ALL;
                 break;
             default:
-                score = "Deuce";
+                score = DEUCE;
                 break;
         }
     }
