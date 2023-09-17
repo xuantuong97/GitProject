@@ -25,8 +25,11 @@ public class Motorcycle extends Vehicle{
 
     @Override
     public String toString() {
-        return "Motorcycle{" + super.toString() +
-                "power=" + power +
-                '}';
+        return "License plate: " + getId()
+                + "\tmanufacturer: " + getManufacturer()
+                + "\tyear: " + getYear()
+                + "\towner: " + getOwner()
+                + "\tpower: " + getPower()
+                ;
     }
 }

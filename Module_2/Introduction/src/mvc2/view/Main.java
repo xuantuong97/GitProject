@@ -1,8 +1,8 @@
 package mvc2.view;
 
-import mvc2.model.Car;
-import mvc2.model.Motorcycle;
-import mvc2.model.Truck;
+import mvc2.model.*;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class Main {
          Car car1 = new Car("001", "Yamaha","2000",
                 "tuong",4,"sedan");
 
-        Car car2 = new Car("001", "Yamaha","2002",
+         Car car2 = new Car("002", "Yamaha","2002",
                 "tuong",4,"sedan");
 
          Truck truck = new Truck("001", "Yamaha","2000",
@@ -28,5 +28,7 @@ public class Main {
 
          vehicleView.displayMenu();
 
+//         ArrayListOfManufacture arrayListOfManufacture = new ArrayListOfManufacture();
+//         System.out.println(arrayListOfManufacture.getManufacturerArrayList().get(1));
     }
 }

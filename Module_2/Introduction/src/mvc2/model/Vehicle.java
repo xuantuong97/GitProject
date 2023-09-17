@@ -1,11 +1,15 @@
 package mvc2.model;
 
+import java.util.ArrayList;
+
 public abstract class Vehicle {
 
     private String id;
     private String manufacturer;
     private String year;
     private String owner;
+
+
 
     Vehicle(){};
 
@@ -47,6 +51,7 @@ public abstract class Vehicle {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
 
     @Override
     public String toString() {

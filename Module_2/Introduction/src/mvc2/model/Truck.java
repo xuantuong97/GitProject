@@ -25,8 +25,11 @@ public class Truck extends Vehicle {
 
     @Override
     public String toString() {
-        return "Truck{" + super.toString() +
-                "loadAbility=" + loadAbility +
-                '}';
+         return "License plate: " + getId()
+                + "\tmanufacturer: " + getManufacturer()
+                + "\tyear: " + getYear()
+                + "\towner: " + getOwner()
+                + "\tload ability: " + getLoadAbility()
+                ;
     }
 }

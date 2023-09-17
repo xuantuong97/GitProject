@@ -36,9 +36,12 @@ public class Car extends Vehicle{
 
     @Override
     public String toString() {
-        return "Car{" + super.toString() +
-                "numberOfSeat=" + numberOfSeat +
-                ", model='" + model + '\'' +
-                '}';
+        return "License plate: " + getId()
+                + "\tmanufacturer: " + getManufacturer()
+                + "\tyear: " + getYear()
+                + "\towner: " + getOwner()
+                + "\tnumber of seats: " + getNumberOfSeat()
+                + "\tmodel: " + getModel()
+                ;
     }
 }
