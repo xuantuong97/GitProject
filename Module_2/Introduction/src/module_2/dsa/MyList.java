@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MyList<E> {
     private int size = 0;
-    static final int DEFAULT_CAPACITY = 10;
-    Object []elements;
+    private final int DEFAULT_CAPACITY = 10;
+    private Object []elements;
 
     public MyList(){
         elements = new Object[DEFAULT_CAPACITY];
@@ -73,7 +73,7 @@ public class MyList<E> {
             ensureCap(1);
         }
         if (index < 0 || index >= size){
-            System.out.println("Not valid index");
+            throw new IndexOutOfBoundsException("Not valid index");
         }
         else {
             for (int i = size; i > index; i--){

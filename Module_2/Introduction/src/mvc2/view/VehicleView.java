@@ -139,7 +139,7 @@ public class VehicleView {
 
         addVehicleDetails();
         System.out.println("Add power:");
-        int power = scanner.nextInt();
+        int power = Integer.parseInt(scanner.nextLine());
 
         Motorcycle motorcycle = new Motorcycle(licensePlate, manufacturer, year, owner, power);
 

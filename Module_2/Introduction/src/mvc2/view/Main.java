@@ -28,7 +28,6 @@ public class Main {
 
          vehicleView.displayMenu();
 
-//         ArrayListOfManufacture arrayListOfManufacture = new ArrayListOfManufacture();
-//         System.out.println(arrayListOfManufacture.getManufacturerArrayList().get(1));
+
     }
 }
