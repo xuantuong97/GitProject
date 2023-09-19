@@ -11,6 +11,11 @@ public class Main {
         Product p3 = new Product("003","Ex", 25000);
         Product p4 = new Product("004","Ex", 2000);
 
-        productManagerView.addProduct();
+        productManagerView.addTest(p1);
+        productManagerView.addTest(p2);
+        productManagerView.addTest(p3);
+        productManagerView.addTest(p4);
+
+        productManagerView.displayMenu();
     }
 }

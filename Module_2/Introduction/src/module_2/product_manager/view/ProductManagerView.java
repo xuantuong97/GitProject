@@ -13,7 +13,50 @@ public class ProductManagerView {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public void addProduct(){
+    public void displayMenu(){
+        System.out.println("Please choose option" +
+                "\n 1. Add a product." +
+                "\n 2. Display all products." +
+                "\n 3. Remove a product." +
+                "\n 4. Search a product" +
+                "\n 5. Update a product." +
+                "\n 6. Sort product list." +
+                "\n 7. Exit.");
+
+        int choose = Integer.parseInt(scanner.nextLine());
+
+        switch (choose){
+            case 1:
+                addProduct();
+                displayMenu();
+                break;
+            case 2:
+                displayProducts();
+                displayMenu();
+                break;
+            case 3:
+                removeProduct();
+                displayMenu();
+                break;
+            case 4:
+                searchProduct();
+                displayMenu();
+                break;
+            case 5:
+                updateProduct();
+                displayMenu();
+                break;
+            case 6:
+                sortProduct();
+                displayMenu();
+                break;
+            case 7:
+            default:
+                break;
+        }
+    }
+
+    private void addProduct(){
         System.out.println("Enter the ID product:");
         String id = scanner.nextLine();
 
@@ -28,7 +71,7 @@ public class ProductManagerView {
         productManagerController.addProduct(product);
     }
 
-    public void displayProducts(){
+    private void displayProducts(){
         for(Product product: productManagerController.getAllProducts()){
             System.out.println(product.toString());
         }
@@ -115,17 +158,32 @@ public class ProductManagerView {
         }
     }
 
-    public void ascShort(){
+    private void ascShort(){
         productManagerController.ascendingShort();
         displayProducts();
     }
 
-    public void descShort(){
+    private void descShort(){
         productManagerController.descendingShort();
         displayProducts();
     }
 
-    public void addT(Student student){
-        productManagerController
+    private void sortProduct(){
+        System.out.println("Please choose option" +
+                "\n 1. Ascending order." +
+                "\n 2. Descending order.");
+        int choose = Integer.parseInt(scanner.nextLine());
+        switch (choose){
+            case 1: ascShort();
+                break;
+            case 2: descShort();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void addTest(Product product){
+        productManagerController.addProduct(product);
     }
 }
