@@ -1,11 +1,11 @@
-package module_2.search_algorithm.max_string;
+package module_2.search_algorithm.max_string_2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaxString {
+public class MaxString2 {
 
-    public MaxString(){};
+    public MaxString2(){};
 
     public String findMaxString(String string){
 
@@ -21,6 +21,9 @@ public class MaxString {
                 if(maxChar < string.charAt(j+1)){
                     maxString += string.charAt(j+1);
                     maxChar = string.charAt(j+1);
+                }
+                else {
+                    break;
                 }
             }
             listString.add(maxString);
