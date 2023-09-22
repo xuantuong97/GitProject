@@ -13,14 +13,14 @@ public class Triangle {
 
                 boolean isException2 = (a+b)<=c || (a+c)<=b || (b+c)<=a;
                 if(isException2){
-                    throw new IllegalTriangleException2();
+                    throw new IllegalTriangleException();
                 }
                 else {
                     System.out.println("The triangle have 3 side a = " + a + " b = "+b + " c = "+c);
                     break;
                 }
             }
-            catch (IllegalTriangleException2 ex){
+            catch (IllegalTriangleException ex){
                 System.out.println(ex.getMessageOfException2());
             }
         }
@@ -34,7 +34,7 @@ public class Triangle {
                 System.out.println("Enter side length");
                 double side = Double.parseDouble(scanner.nextLine());
                 if(side<=0){
-                    throw new IllegalTriangleException1();
+                    throw new IllegalTriangleException();
                 }
                 else {
                     return side;
@@ -43,7 +43,7 @@ public class Triangle {
             catch (NumberFormatException ex) {
                 System.out.println("Invalid input. Please enter a valid number.");
             }
-            catch (IllegalTriangleException1 ex){
+            catch (IllegalTriangleException ex){
                 System.out.println(ex.getMessageOfException1());
             }
         }while (true);
