@@ -8,6 +8,11 @@ public class CopyFile {
 
     static final String PATH = "C:\\Users\\ADMIN\\Documents\\GitProject\\Module_2\\Introduction\\src\\module_2\\io_text_file\\copy_file\\";
     public static void copyAndWrite(String source, String target){
+        FileReader reader = null;
+        BufferedReader bufferedReader = null;
+        FileWriter writer = null;
+        BufferedWriter bufferedWriter = null;
+
         try {
 
             String sourcePath = PATH + source;
@@ -19,11 +24,11 @@ public class CopyFile {
                 throw new FileNotFoundException();
             }
 
-            FileReader reader = new FileReader(sourceFile);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+             reader = new FileReader(sourceFile);
+             bufferedReader = new BufferedReader(reader);
 
-            FileWriter writer = new FileWriter(targetFile);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+             writer = new FileWriter(targetFile);
+             bufferedWriter = new BufferedWriter(writer);
 
             String line ;
             String sumString = "";
@@ -34,9 +39,6 @@ public class CopyFile {
                 sumString += line;
             }
 
-            bufferedReader.close();
-            bufferedWriter.close();
-
             System.out.println("Copy: "+ sumString.length() + " characters.");
 
         }
@@ -46,29 +48,61 @@ public class CopyFile {
         catch (IOException e){
             e.printStackTrace();
         }
+        finally {
+            try {
+                if(bufferedReader != null){
+                    bufferedReader.close();
+                }
+                if(reader !=null){
+                    reader.close();
+                }
+                if(bufferedWriter != null){
+                    bufferedWriter.close();
+                }
+                if(writer !=null){
+                    writer.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static void showFile(String fileName){
 
+        File file;
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+
         try{
             String filePath = PATH + fileName;
-            File file = new File(filePath);
+            file = new File(filePath);
 
             if(!file.exists()){
                 throw new FileNotFoundException();
             }
-
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+             fileReader = new FileReader(file);
+             bufferedReader = new BufferedReader(fileReader);
             String line;
 
             while((line = bufferedReader.readLine())!= null){
                 System.out.println(line);
             }
-
-            bufferedReader.close();
         }
         catch (Exception e){
             System.out.println("File not found!");
+        }
+        finally {
+            try {
+                if(bufferedReader!= null){
+                    bufferedReader.close();
+                }
+                if(fileReader!= null){
+                    fileReader.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
