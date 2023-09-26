@@ -1,15 +1,11 @@
-package module_2.io_binary_file.utils.impl;
-
-import module_2.io_binary_file.utils.IIOByByteStream;
+package module_2.io_binary_file_optional;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractUtils<O> implements IIOByByteStream<O> {
-
-    @Override
-    public List<O> readByByteStream(String path) {
+public class CopyBinaryFile {
+    private static List<Object> read(String path) {
 
         File file ;
         FileInputStream fileInputStream = null;
@@ -18,12 +14,14 @@ public abstract class AbstractUtils<O> implements IIOByByteStream<O> {
         try{
             file = new  File(path);
             if(!file.exists()){
-                return new ArrayList<>();
+                throw new FileNotFoundException();
             }
             fileInputStream = new FileInputStream(file);
             objectInputStream = new ObjectInputStream(fileInputStream);
 
-            return (List<O>) objectInputStream.readObject();
+            return (List<Object>) objectInputStream.readObject();
+        }catch (FileNotFoundException e){
+            System.out.println("File not found");
         }
         catch (IOException | ClassNotFoundException e){
             System.out.println("Error");
@@ -43,23 +41,23 @@ public abstract class AbstractUtils<O> implements IIOByByteStream<O> {
         return new ArrayList<>();
     }
 
-    @Override
-    public void writeByByteStream(String path, List<O> data) {
+    public static void copy(String source, String target){
         File file;
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
 
         try{
-            file = new File(path);
-            if(!file.exists()){
-                file.createNewFile();
-            }
-
+            file = new File(target);
             fileOutputStream = new FileOutputStream(file);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(data);
+            List<Object> list = read(source);
+            objectOutputStream.writeObject(list);
+            System.out.println("Size of file: "+ file.length());
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error");
         }
         finally {
             try {
@@ -70,7 +68,7 @@ public abstract class AbstractUtils<O> implements IIOByByteStream<O> {
                     fileOutputStream.close();
                 }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println("Error");
             }
         }
     }
