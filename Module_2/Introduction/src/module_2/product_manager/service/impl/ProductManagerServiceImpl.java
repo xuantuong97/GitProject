@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ProductManagerServiceImpl implements IProductManagerService {
 
-    IProductManagerRepo productManagerRepo = new ProductManagerRepoImpl();
+    private final IProductManagerRepo productManagerRepo = new ProductManagerRepoImpl();
 
     @Override
     public void addProduct(Product product) {

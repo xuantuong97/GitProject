@@ -8,7 +8,7 @@ import java.util.*;
 
 public class ProductManagerRepoImpl implements IProductManagerRepo {
 
-    private ArrayList<Product> products = new ArrayList<>();
+    private final ArrayList<Product> products = new ArrayList<>();
 
     @Override
     public void addProduct(Product product) {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ProductManagerController {
 
 
-    IProductManagerService productManagerService = new ProductManagerServiceImpl();
+    private final IProductManagerService productManagerService = new ProductManagerServiceImpl();
 
     public void addProduct(Product product) {
         productManagerService.addProduct(product);
