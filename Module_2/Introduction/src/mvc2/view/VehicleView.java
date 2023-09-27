@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class VehicleView {
 
 
-
     private final VehicleController<Car> vehicleControllerCar = new VehicleController();
     private final VehicleController<Truck> vehicleControllerTruck = new VehicleController();
     private final VehicleController<Motorcycle> vehicleControllerMotorCycle = new VehicleController();
