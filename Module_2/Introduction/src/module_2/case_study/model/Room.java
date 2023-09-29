@@ -24,12 +24,12 @@ public class Room extends AbstractFacility{
     public String toString() {
         return "Room{" +
                 "freeService='" + freeService + '\'' +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", area=" + area +
-                ", cost=" + cost +
-                ", capacity=" + capacity +
-                ", rentalType='" + rentalType + '\'' +
+                ", id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", area=" + getArea() +
+                ", cost=" + getCost() +
+                ", capacity=" + getCapacity() +
+                ", rentalType='" + getRentalType() + '\'' +
                 '}';
     }
 }

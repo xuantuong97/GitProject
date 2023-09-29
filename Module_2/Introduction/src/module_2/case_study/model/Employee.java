@@ -63,12 +63,12 @@ public class Employee extends AbstractPerson{
                 ", level='" + level + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
-                ", name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", dob='" + dob + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
+                ", name='" + getName() + '\'' +
+                ", id='" + getId() + '\'' +
+                ", dob='" + getDob() + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", email='" + getEmail() + '\'' +
                 '}';
     }
 }

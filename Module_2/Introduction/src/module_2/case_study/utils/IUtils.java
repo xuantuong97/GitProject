@@ -8,5 +8,4 @@ public interface IUtils<E> {
 
     void writeFile(String path, List<String> data);
 
-    List<String> convertObjectString(List<E> eList);
 }

@@ -2,13 +2,13 @@ package module_2.case_study.model;
 
 public abstract class AbstractPerson {
 
-    protected String name;
+    private String name;
 
-    protected String id;
-    protected String dob;
-    protected String gender;
-    protected String phoneNumber;
-    protected String email;
+    private String id;
+    private String dob;
+    private String gender;
+    private String phoneNumber;
+    private String email;
 
     public AbstractPerson(){};
 

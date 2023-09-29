@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractUtils<E> implements IUtils<E>{
+
+
     @Override
     public List<String> readFile(String path) {
         FileReader fileReader = null;
@@ -72,11 +74,5 @@ public abstract class AbstractUtils<E> implements IUtils<E>{
                 throw new RuntimeException(e);
             }
         }
-    }
-
-
-    @Override
-    public List<String> convertObjectString(List<E> eList) {
-        return null;
     }
 }

@@ -46,12 +46,12 @@ public class Villa extends AbstractFacility {
                 "roomStandard='" + roomStandard + '\'' +
                 ", poolArea=" + poolArea +
                 ", numberFloor=" + numberFloor +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", area=" + area +
-                ", cost=" + cost +
-                ", capacity=" + capacity +
-                ", rentalType='" + rentalType + '\'' +
+                ", id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", area=" + getArea() +
+                ", cost=" + getCost() +
+                ", capacity=" + getCapacity() +
+                ", rentalType='" + getRentalType() + '\'' +
                 '}';
     }
 }
