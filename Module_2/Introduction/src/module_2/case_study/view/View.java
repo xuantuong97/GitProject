@@ -14,7 +14,6 @@ public class View {
 
     public void mainMenu(){
         int choose;
-        do {
             System.out.println("1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
                     "3.\tFacility Management \n" +
@@ -34,64 +33,91 @@ public class View {
                     break;
                 case 5: promotionMenu();
                     break;
+                case 6: System.exit(0);
+                    break;
+            }
+    }
+
+    private void customerMenu(){
+        int choose;
+        do {
+            System.out.println("1.\tDisplay list customers\n" +
+                    "2.\tAdd new customer\n" +
+                    "3.\tEdit customer\n" +
+                    "4.\tDelete customer\n" +
+                    "5.\tSearch by name customer\n" +
+                    "6.\tReturn main menu\n");
+            choose = choose(1, 6);
+            switch (choose){
+                case 1: displayAllCustomer();
+                    break;
+                case 2: addFullInformationOfCus();
+                    break;
+                case 3: editCustomerInfo();
+                    break;
+                case 4: deleteCustomer();
+                    break;
+                case 5: searchCustomerByName();
+                    break;
                 case 6:
                     break;
             }
         }
         while (choose != 6);
-
-    }
-
-    private void customerMenu(){
-        System.out.println("1.\tDisplay list customers\n" +
-                "2.\tAdd new customer\n" +
-                "3.\tEdit customer\n" +
-                "4.\tDelete customer\n" +
-                "5.\tSearch by name customer\n" +
-                "6.\tReturn main menu\n");
-        int choose = choose(1, 6);
-        switch (choose){
-            case 1: displayAllCustomer();
-            break;
-            case 2: addFullInformationOfCus();
-            break;
-            case 3: editCustomerInfo();
-            break;
-            case 4: deleteCustomer();
-            break;
-        }
+        mainMenu();
     }
 
     private void employeeMenu(){
-        System.out.println("1\tDisplay list employees\n" +
-                "2\tAdd new employee\n" +
-                "3\tEdit employee\n" +
-                "4\tDelete employee\n" +
-                "5\tSearch by name employee\n" +
-                "6\tReturn main menu\n");
+        int choose;
+        do {
+            System.out.println("1\tDisplay list employees\n" +
+                    "2\tAdd new employee\n" +
+                    "3\tEdit employee\n" +
+                    "4\tDelete employee\n" +
+                    "5\tSearch by name employee\n" +
+                    "6\tReturn main menu\n");
+            choose = choose(1,6);
+        }while (choose !=6);
+        mainMenu();
     }
 
     private void facilityMenu(){
-        System.out.println("1\tDisplay list facility\n" +
-                "2\tAdd new facility\n" +
-                "3\tDisplay list facility maintenance\n" +
-                "4\tDelete facility\n" +
-                "5\tReturn main menu\n");
+        int choose;
+        do {
+
+            System.out.println("1\tDisplay list facility\n" +
+                    "2\tAdd new facility\n" +
+                    "3\tDisplay list facility maintenance\n" +
+                    "4\tDelete facility\n" +
+                    "5\tReturn main menu\n");
+            choose = choose(1,5);
+        }while (choose!=5);
+        mainMenu();
     }
 
     private void bookingMenu(){
-        System.out.println("1.\tAdd new booking\n" +
-                "2.\tDisplay list booking\n" +
-                "3.\tCreate new contracts\n" +
-                "4.\tDisplay list contracts\n" +
-                "5.\tEdit contracts\n" +
-                "6.\tReturn main menu\n");
+        int choose;
+        do{
+            System.out.println("1.\tAdd new booking\n" +
+                    "2.\tDisplay list booking\n" +
+                    "3.\tCreate new contracts\n" +
+                    "4.\tDisplay list contracts\n" +
+                    "5.\tEdit contracts\n" +
+                    "6.\tReturn main menu\n");
+            choose = choose(1,6);
+        }while (choose != 6);
+        mainMenu();
     }
 
     private void promotionMenu(){
-        System.out.println("1.\tDisplay list customers use service\n" +
-                "2.\tDisplay list customers get voucher\n" +
-                "3.\tReturn main menu\n");
+        int choose;
+        do{
+            System.out.println("1.\tDisplay list customers use service\n" +
+                    "2.\tDisplay list customers get voucher\n" +
+                    "3.\tReturn main menu\n");
+            choose = choose(1,3);
+        }while (choose !=3);
+        mainMenu();
     }
 
     private int choose(int min, int max){
@@ -376,8 +402,16 @@ public class View {
     // Search customer
 
     private void searchCustomerByName(){
+        System.out.println("Enter customer name");
         String name = addCustomerName();
         List<Customer> customers = customerController.getDetail(name);
-        
+        if(customers.size()<1){
+            System.out.println("Not exist customer with name: "+name);
+        }
+        else {
+            for(Customer customer: customers){
+                System.out.println(customer);
+            }
+        }
     }
 }
