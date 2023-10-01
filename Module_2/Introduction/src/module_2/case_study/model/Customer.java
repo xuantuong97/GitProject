@@ -14,7 +14,7 @@ public class Customer extends AbstractPerson{
         this.address = address;
     }
 
-    public Customer(String name, String id, String dob, String gender, String phoneNumber, String email, String customerID, String type, String address) {
+    public Customer(String customerID, String name, String id, String dob, String gender, String phoneNumber, String email, String type, String address) {
         super(name, id, dob, gender, phoneNumber, email);
         this.customerID = customerID;
         this.type = type;
@@ -49,12 +49,12 @@ public class Customer extends AbstractPerson{
     public String toString() {
         return "Customer{" +
                 "customerID='" + customerID + '\'' +
-                ", name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", dob='" + dob + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
+                ", name='" + getName() + '\'' +
+                ", id='" + getId() + '\'' +
+                ", dob='" + getDob() + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", email='" + getEmail() + '\'' +
                 ", type='" + type + '\'' +
                 ", address='" + address + '\'' +
                 '}';

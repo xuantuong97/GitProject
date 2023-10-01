@@ -2,12 +2,12 @@ package module_2.case_study.model;
 
 public abstract class AbstractFacility {
 
-    protected String id;
-    protected String name;
-    protected float area;
-    protected float cost;
-    protected int capacity;
-    protected String rentalType;
+    private String id;
+    private String name;
+    private float area;
+    private float cost;
+    private int capacity;
+    private String rentalType;
 
     public AbstractFacility() {
     }
