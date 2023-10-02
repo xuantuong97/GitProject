@@ -2,7 +2,9 @@ package module_2.case_study.view;
 
 
 import module_2.case_study.controller.CustomerController;
+import module_2.case_study.controller.EmployeeController;
 import module_2.case_study.model.Customer;
+import module_2.case_study.model.Employee;
 import module_2.case_study.utils.Regex;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.Scanner;
 
 public class View {
     private final CustomerController customerController = new CustomerController();
+    private final EmployeeController employeeController = new EmployeeController();
     private final Scanner scanner = new Scanner(System.in);
 
     public void mainMenu(){
@@ -77,6 +80,19 @@ public class View {
                     "5\tSearch by name employee\n" +
                     "6\tReturn main menu\n");
             choose = choose(1,6);
+            switch (choose){
+                case 1: displayAllEmployees();
+                break;
+                case 2: addAllInformationOfEmp();
+                break;
+                case 3: editEmployee();
+                break;
+                case 4: deleteEmployee();
+                break;
+                case 5: searchEmployee();
+                break;
+                case 6: break;
+            }
         }while (choose !=6);
         mainMenu();
     }
@@ -148,7 +164,7 @@ public class View {
         System.out.println("Enter customer ID");
         String customerID = addCustomerID();
         System.out.println("Enter customer name");
-        String customerName = addCustomerName();
+        String customerName = addName();
         System.out.println("Enter customer ID card number");
         String customerIDCard = addIDCard();
         System.out.println("Enter customer day of birth");
@@ -170,7 +186,7 @@ public class View {
     }
 
 
-    private  String addCustomerID(){
+    private String addCustomerID(){
         do{
             try {
                 String customerID = scanner.nextLine();
@@ -187,7 +203,7 @@ public class View {
         }while (true);
     }
 
-    private String addCustomerName(){
+    private String addName(){
         do{
             try {
                 String fullName = scanner.nextLine();
@@ -345,7 +361,7 @@ public class View {
                 switch (choose){
                     case 1:
                         System.out.println("Enter customer name");
-                        String customerName = addCustomerName();
+                        String customerName = addName();
                         customer.setName(customerName);
                         break;
                     case 2:
@@ -417,7 +433,7 @@ public class View {
 
     private void searchCustomerByName(){
         System.out.println("Enter customer name");
-        String name = addCustomerName();
+        String name = addName();
         List<Customer> customers = customerController.getDetail(name);
         if(customers.size()<1){
             System.out.println("Not exist customer with name: "+name);
@@ -425,6 +441,219 @@ public class View {
         else {
             for(Customer customer: customers){
                 System.out.println(customer);
+            }
+        }
+    }
+
+    /*============== Employee ========*/
+
+    private String addEmployeeID(){
+        do{
+            String empID = scanner.nextLine();
+            if(Regex.validateEmployeeID(empID)){
+                return empID;
+            }
+            System.out.println("Employee ID is not valid");
+        }
+        while (true);
+    }
+
+    private String addEmployeeLevel(){
+        do{
+            try{
+              return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("The input is not valid");
+            }
+        }
+        while (true);
+    }
+
+    private String addEmployeePosition(){
+        do{
+            try{
+               return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("The input is not valid");
+            }
+        }
+        while (true);
+    }
+
+    private float addEmployeeSalary(){
+        do{
+            try{
+                float salary = Float.parseFloat(scanner.nextLine());
+                return salary;
+            }
+            catch (NumberFormatException e){
+                System.out.println("The input is not valid");
+            }
+        }
+        while (true);
+    }
+
+    // Display Employee
+
+    private void displayAllEmployees(){
+        List<Employee> employees = employeeController.getAll();
+        for(Employee employee: employees){
+            System.out.println(employee);
+        }
+    }
+    // Add Employee
+
+    private void addAllInformationOfEmp(){
+        System.out.println("Enter employee ID");
+        String empID = addEmployeeID();
+        System.out.println("Enter employee name");
+        String empName = addName();
+        System.out.println("Enter employee card ID");
+        String idCard = addIDCard();
+        System.out.println("Enter employee day of birth");
+        String empDOB = addDOB();
+        System.out.println("Enter employee gender");
+        String empGender = addGender();
+        System.out.println("Enter employee phone number");
+        String empPhone = addPhoneNumber();
+        System.out.println("Enter employee email");
+        String empEmail = addEmail();
+        System.out.println("Enter employee level");
+        String empLevel = addEmployeeLevel();
+        System.out.println("Enter employee position");
+        String empPosition = addEmployeePosition();
+        System.out.println("Enter employee salary");
+        float empSalary = addEmployeeSalary();
+        employeeController.add(new Employee(
+                empID, empName, idCard, empDOB, empGender, empPhone, empEmail, empLevel,
+                empPosition, empSalary
+        ));
+    }
+
+    private int getIndexByEmployeeID(String id){
+        int index = -1;
+        List<Employee> employees = employeeController.getAll();
+        for(int i = 0; i< employees.size(); i++){
+            if (employees.get(i).getEmployeeID().equals(id)){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    private void editEmployee(){
+        System.out.println("Enter employee ID");
+        String empID = addEmployeeID();
+        int index = getIndexByEmployeeID(empID);
+        if(index == -1){
+            System.out.println("The ID is not exist");
+        }
+        else {
+            int choose;
+            Employee employee = employeeController.getAll().get(index);
+            do{
+                System.out.println("Choose option:\n" +
+                        "1. Edit name\n"+
+                        "2. Edit ID card number\n"+
+                        "3. Edit day of birth\n"+
+                        "4. Edit gender\n"+
+                        "5. Edit phone number\n"+
+                        "6. Edit mail\n"+
+                        "7. Edit level\n"+
+                        "8. Edit position\n"+
+                        "9. Edit salary\n"+
+                        "10. Finish edit"
+                );
+                choose = choose(1,10);
+                switch (choose){
+                    case 1:
+                        System.out.println("Enter name");
+                        String name = addName();
+                        employee.setName(name);
+                        break;
+                    case 2:
+                        System.out.println("Enter card ID");
+                        String id = addEmployeeID();
+                        employee.setEmployeeID(id);
+                        break;
+                    case 3:
+                        System.out.println("Enter day of birth");
+                        String dob = addDOB();
+                        employee.setDob(dob);
+                        break;
+                    case 4:
+                        System.out.println("Enter gender");
+                        String gender = addGender();
+                        employee.setGender(gender);
+                        break;
+                    case 5:
+                        System.out.println("Enter phone number");
+                        String phone = addPhoneNumber();
+                        employee.setPhoneNumber(phone);
+                        break;
+                    case 6:
+                        System.out.println("Enter email");
+                        String email = addEmail();
+                        employee.setEmail(email);
+                        break;
+                    case 7:
+                        System.out.println("Enter level");
+                        String level = addEmployeeLevel();
+                        employee.setLevel(level);
+                        break;
+                    case 8:
+                        System.out.println("Enter position");
+                        String position = addEmployeePosition();
+                        employee.setPosition(position);
+                        break;
+                    case 9:
+                        System.out.println("Enter salary");
+                        float salary = addEmployeeSalary();
+                        employee.setSalary(salary);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            while (choose != 10);
+            employeeController.edit(index,employee);
+        }
+    }
+
+    private void searchEmployee(){
+        System.out.println("Enter name");
+        String name = addName();
+        List<Employee> employees = employeeController.getDetail(name);
+
+        if(employees.size()<1){
+            System.out.println("Not found name");
+        }
+        else {
+            for(Employee employee : employees){
+                System.out.println(employee);
+            }
+        }
+    }
+
+    private void deleteEmployee(){
+        System.out.println("Enter employee ID");
+        String id  = addEmployeeID();
+        int index = getIndexByCustomerId(id);
+
+        if(index == -1){
+            System.out.println("The ID is not exist");
+        }
+        else {
+            System.out.println("Do you want remove the employee" +
+                    "1. Yes" +
+                    "2. No");
+            int choose = choose(1,2);
+            if(choose == 1){
+                employeeController.delete(id);
+                System.out.println("The employee has been removed");
             }
         }
     }

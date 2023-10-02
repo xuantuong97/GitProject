@@ -10,7 +10,7 @@ import java.util.List;
 public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPersonRepo<Customer> {
 
     private final String CUSTOMER_PATH = "C:\\Users\\ADMIN\\Documents\\GitProject\\Module_2\\Introduction\\src\\module_2\\case_study\\data\\customer.csv";
-    private final String COMMA = ",";
+
     @Override
     public void add(Customer customer) {
         List<Customer> customers = readCustomerFromFile();
@@ -41,7 +41,7 @@ public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPerson
         List<Customer> customers = readCustomerFromFile();
         List<Customer> data = new ArrayList<>();
         for(Customer customer: customers){
-            if(customer.getName().equals(name)){
+            if(customer.getName().contains(name)){
                 data.add(customer);
             }
         }

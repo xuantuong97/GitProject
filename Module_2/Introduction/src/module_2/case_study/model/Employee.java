@@ -16,7 +16,7 @@ public class Employee extends AbstractPerson{
         this.salary = salary;
     }
 
-    public Employee(String name, String id, String dob, String gender, String phoneNumber, String email, String employeeID, String level, String position, float salary) {
+    public Employee(String employeeID, String name, String id, String dob, String gender, String phoneNumber, String email, String level, String position, float salary) {
         super(name, id, dob, gender, phoneNumber, email);
         this.employeeID = employeeID;
         this.level = level;
