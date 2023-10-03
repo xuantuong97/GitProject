@@ -8,8 +8,8 @@ public class House extends AbstractFacility{
     public House() {
     }
 
-    public House(String id, String name, float area, float cost, int capacity, String rentalType, String roomStandard, int numberFloor) {
-        super(id, name, area, cost, capacity, rentalType);
+    public House(String id, String name, float area, float cost, int capacity, String rentalType, boolean isMaintenance, String roomStandard, int numberFloor) {
+        super(id, name, area, cost, capacity, rentalType,isMaintenance);
         this.roomStandard = roomStandard;
         this.numberFloor = numberFloor;
     }

@@ -3,8 +3,10 @@ package module_2.case_study.view;
 
 import module_2.case_study.controller.CustomerController;
 import module_2.case_study.controller.EmployeeController;
+import module_2.case_study.controller.HouseController;
 import module_2.case_study.model.Customer;
 import module_2.case_study.model.Employee;
+import module_2.case_study.model.House;
 import module_2.case_study.utils.Regex;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 public class View {
     private final CustomerController customerController = new CustomerController();
     private final EmployeeController employeeController = new EmployeeController();
+    private final HouseController houseController = new HouseController();
     private final Scanner scanner = new Scanner(System.in);
 
     public void mainMenu(){
@@ -107,8 +110,56 @@ public class View {
                     "4\tDelete facility\n" +
                     "5\tReturn main menu\n");
             choose = choose(1,5);
+            switch (choose){
+                case 1: displayAllHouse();
+                break;
+                case 2: addFacilityMenu();
+                break;
+                case 3: displayMaintenance();
+                break;
+                case 4: deleteFacilityMenu();
+                break;
+                default:
+                break;
+            }
         }while (choose!=5);
         mainMenu();
+    }
+
+    private void addFacilityMenu(){
+        int choose;
+        do{
+            System.out.println("1. Add new house" +
+                    "\n2. Add new room" +
+                    "\n3. Add new villa" +
+                    "\n4. Back to menu");
+            choose = choose(1,4);
+            switch (choose){
+                case 1: addFullHouseInfo();
+                break;
+                default: break;
+            }
+
+        }while (choose != 4);
+        facilityMenu();
+    }
+
+    private void deleteFacilityMenu(){
+        int choose;
+        do{
+            System.out.println("1. Delete a house" +
+                    "\n2. Delete a room" +
+                    "\n3. Delete a villa" +
+                    "\n4. Delete a menu");
+            choose = choose(1,4);
+            switch (choose){
+                case 1: addFullHouseInfo();
+                    break;
+                default: break;
+            }
+
+        }while (choose != 4);
+        facilityMenu();
     }
 
     private void bookingMenu(){
@@ -146,7 +197,10 @@ public class View {
                 }
             }
             catch (NumberFormatException e){
-                System.out.println("Invalid input");
+                System.out.println("Input must be a integer");
+            }
+            catch (Exception e){
+                System.out.println("Not valid input");
             }
         }
         while (choose < min || choose > max);
@@ -486,10 +540,16 @@ public class View {
         do{
             try{
                 float salary = Float.parseFloat(scanner.nextLine());
-                return salary;
+                if(Regex.validateSalary(salary)){
+                    return salary;
+                }
+                throw new NumberFormatException();
             }
             catch (NumberFormatException e){
-                System.out.println("The input is not valid");
+                System.out.println("The salary must be a number and greater than 0");
+            }
+            catch (Exception e){
+                System.out.println("Not valid input");
             }
         }
         while (true);
@@ -655,6 +715,207 @@ public class View {
                 employeeController.delete(id);
                 System.out.println("The employee has been removed");
             }
+        }
+    }
+
+    /*============ House ==============*/
+
+    private String addHouseId(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+
+        }while (true);
+    }
+
+    private String addFacilityName(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+
+        }while (true);
+    }
+
+    private float addArea(){
+        do{
+            try{
+                float area = Float.parseFloat(scanner.nextLine());
+                if(area <= 0){
+                    throw new NumberFormatException();
+                }
+                return area;
+            }
+            catch (NumberFormatException e){
+                System.out.println("The area must be a number and greater than 0");
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }while (true);
+    }
+
+    private float addCost(){
+        do{
+            try{
+                float cost = Float.parseFloat(scanner.nextLine());
+                if(cost <= 0){
+                    throw new NumberFormatException();
+                }
+                return cost;
+            }
+            catch (NumberFormatException e){
+                System.out.println("The cost must be a number and greater than 0");
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }while (true);
+    }
+
+    private int addCapacity(){
+        do{
+            try{
+                int capacity = Integer.parseInt(scanner.nextLine());
+                if(capacity <= 0){
+                    throw new NumberFormatException();
+                }
+                return capacity;
+            }
+            catch (NumberFormatException e){
+                System.out.println("The capacity must be a integer and greater than 0");
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+
+        }while (true);
+    }
+
+    private String addRentalType(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }
+        while (true);
+    }
+
+    private String addFreeService(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }while (true);
+    }
+
+    private String roomStandard(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }while (true);
+    }
+
+    private int addNumberFloor(){
+        do{
+            try{
+                int floor = Integer.parseInt(scanner.nextLine());
+                if(floor <= 0){
+                    throw new NumberFormatException();
+                }
+                return floor;
+            }
+            catch (NumberFormatException e){
+                System.out.println("The number of floor must be a integer and greater than 0");
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+
+        }while (true);
+    }
+
+
+    private void addFullHouseInfo(){
+        System.out.println("Enter house ID");
+        String id = addHouseId();
+        System.out.println("Enter house name");
+        String name = addFacilityName();
+        System.out.println("Enter house area");
+        float area = addArea();
+        System.out.println("Enter house cost");
+        float cost = addCost();
+        System.out.println("Enter house capacity");
+        int capacity = addCapacity();
+        System.out.println("Enter house rental type");
+        String type = addRentalType();
+        System.out.println("Enter house room standard");
+        String standard = roomStandard();
+        System.out.println("Enter house number of floor");
+        int floor = addNumberFloor();
+
+        House house = new House(id, name, area, cost, capacity, type,false, standard, floor);
+        houseController.add(house);
+    }
+
+    private void displayAllHouse(){
+        List<House> data = houseController.getAll();
+        for(House house : data){
+            System.out.println(house);
+        }
+    }
+
+    private void displayMaintenance(){
+        List<House> data = houseController.getMaintenance();
+        for(House house : data){
+            System.out.println(house);
+        }
+    }
+
+    private int getIndexOfHouse(String id){
+        int index = -1;
+        List<House> data = houseController.getMaintenance();
+        for(int i=0; i<data.size(); i++){
+            if(data.get(i).getId().equals(id)){
+                index = i;
+                return index;
+            }
+        }
+        return index;
+    }
+
+    private void deleteHouse(){
+        System.out.println("Enter house ID");
+        String id = addHouseId();
+        int index = getIndexByCustomerId(id);
+        if(index == -1){
+            System.out.println("The ID is not exist");
+            return;
+        }
+        System.out.println("Do you want delete this house" +
+                "\n1. Yes" +
+                "\n2. No");
+        int choose = choose(1, 2);
+        if(choose == 1){
+            houseController.delete(id);
+            System.out.println("The house has been removed");
         }
     }
 }

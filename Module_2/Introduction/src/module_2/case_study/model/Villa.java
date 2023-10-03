@@ -9,8 +9,8 @@ public class Villa extends AbstractFacility {
     public Villa() {
     }
 
-    public Villa(String id, String name, float area, float cost, int capacity, String rentalType, String roomStandard, float poolArea, int numberFloor) {
-        super(id, name, area, cost, capacity, rentalType);
+    public Villa(String id, String name, float area, float cost, int capacity, String rentalType, boolean isMaintenance, String roomStandard, float poolArea, int numberFloor) {
+        super(id, name, area, cost, capacity, rentalType, isMaintenance);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.numberFloor = numberFloor;

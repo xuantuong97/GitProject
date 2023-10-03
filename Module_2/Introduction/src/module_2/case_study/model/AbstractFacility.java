@@ -9,16 +9,19 @@ public abstract class AbstractFacility {
     private int capacity;
     private String rentalType;
 
+    private boolean isMaintenance;
+
     public AbstractFacility() {
     }
 
-    public AbstractFacility(String id, String name, float area, float cost, int capacity, String rentalType) {
+    public AbstractFacility(String id, String name, float area, float cost, int capacity, String rentalType, boolean isMaintenance) {
         this.id = id;
         this.name = name;
         this.area = area;
         this.cost = cost;
         this.capacity = capacity;
         this.rentalType = rentalType;
+        this.isMaintenance = isMaintenance;
     }
 
     public String getId() {
@@ -69,4 +72,11 @@ public abstract class AbstractFacility {
         this.rentalType = rentalType;
     }
 
+    public boolean isMaintenance() {
+        return isMaintenance;
+    }
+
+    public void setMaintenance(boolean maintenance) {
+        isMaintenance = maintenance;
+    }
 }
