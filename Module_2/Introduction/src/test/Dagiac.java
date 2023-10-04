@@ -1,2 +1,4 @@
-package test;public class Dagiac {
+package test;
+
+public abstract class Dagiac extends Hinh {
 }

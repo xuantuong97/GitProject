@@ -1,2 +1,4 @@
-package test;public class Chunhat {
+package test;
+
+public class Chunhat extends Dagiac{
 }

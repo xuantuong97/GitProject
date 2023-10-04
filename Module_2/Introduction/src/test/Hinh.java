@@ -1,2 +1,4 @@
-package test;public class Hinh {
+package test;
+
+public abstract class Hinh {
 }
