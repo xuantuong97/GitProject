@@ -1,6 +1,6 @@
 package module_2.case_study.model;
 
-public abstract class AbstractPerson {
+public  abstract class AbstractPerson {
 
     private String name;
 

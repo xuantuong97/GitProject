@@ -7,8 +7,8 @@ public class Room extends AbstractFacility{
     public Room() {
     }
 
-    public Room(String id, String name, float area, float cost, int capacity, String rentalType, String freeService) {
-        super(id, name, area, cost, capacity, rentalType);
+    public Room(String id, String name, float area, float cost, int capacity, String rentalType, boolean isMaintenance, String freeService) {
+        super(id, name, area, cost, capacity, rentalType, isMaintenance);
         this.freeService = freeService;
     }
 
