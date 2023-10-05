@@ -6,6 +6,6 @@ public interface IUtils<E> {
 
     List<String> readFile(String path);
 
-    void writeFile(String path, List<String> data);
+    void writeFile(String path, List<String> data, boolean check);
 
 }

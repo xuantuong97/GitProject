@@ -10,9 +10,9 @@ import java.util.List;
 public class EmployeeRepoImpl extends AbstractUtils<Employee> implements IPersonRepo<Employee> {
     private final String EMPLOYEE_PATH = "C:\\Users\\ADMIN\\Documents\\GitProject\\Module_2\\Introduction\\src\\module_2\\case_study\\data\\employee.csv";
     public void add(Employee employee) {
-        List<Employee> employees = readFromFile();
+        List<Employee> employees = new ArrayList<>();
         employees.add(employee);
-        writeToFile(employees);
+        writeToFile(employees, true);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class EmployeeRepoImpl extends AbstractUtils<Employee> implements IPerson
                 break;
             }
         }
-        writeToFile(employees);
+        writeToFile(employees, false);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class EmployeeRepoImpl extends AbstractUtils<Employee> implements IPerson
     public void edit(int index, Employee employee) {
         List<Employee> employees = readFromFile();
         employees.set(index, employee);
-        writeToFile(employees);
+        writeToFile(employees, false);
 
     }
 
@@ -98,8 +98,8 @@ public class EmployeeRepoImpl extends AbstractUtils<Employee> implements IPerson
         return convertStringToEmployee(data);
     }
 
-    private void writeToFile(List<Employee> employees){
+    private void writeToFile(List<Employee> employees, boolean check){
         List<String> stringList = convertEmployeeToString(employees);
-        writeFile(EMPLOYEE_PATH, stringList);
+        writeFile(EMPLOYEE_PATH, stringList, check);
     }
 }

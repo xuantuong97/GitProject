@@ -49,7 +49,7 @@ public class demo {
             for(int j = i+1; j<s.size(); j++){
                 for(Integer integer : data){
                     check = true;
-                    if
+//                    if
                 }
             }
         }

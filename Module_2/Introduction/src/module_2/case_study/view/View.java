@@ -3,10 +3,8 @@ package module_2.case_study.view;
 
 import module_2.case_study.controller.CustomerController;
 import module_2.case_study.controller.EmployeeController;
-import module_2.case_study.controller.HouseController;
-import module_2.case_study.model.Customer;
-import module_2.case_study.model.Employee;
-import module_2.case_study.model.House;
+import module_2.case_study.controller.FacilityController;
+import module_2.case_study.model.*;
 import module_2.case_study.utils.Regex;
 
 import java.util.List;
@@ -15,8 +13,17 @@ import java.util.Scanner;
 public class View {
     private final CustomerController customerController = new CustomerController();
     private final EmployeeController employeeController = new EmployeeController();
-    private final HouseController houseController = new HouseController();
+
+    private final FacilityController<Room> roomController = new FacilityController<>();
+
+    private final FacilityController<Villa> villaController = new FacilityController<>();
+
+    private final FacilityController<House> houseController = new FacilityController<>();
     private final Scanner scanner = new Scanner(System.in);
+
+
+
+
 
     public void mainMenu(){
         int choose;
@@ -153,7 +160,7 @@ public class View {
                     "\n4. Delete a menu");
             choose = choose(1,4);
             switch (choose){
-                case 1: addFullHouseInfo();
+                case 1: deleteHouse();
                     break;
                 default: break;
             }
@@ -852,6 +859,29 @@ public class View {
         }while (true);
     }
 
+    private String freeService(){
+        do{
+            try{
+                return scanner.nextLine();
+            }
+            catch (Exception e){
+                System.out.println("Invalid input");
+            }
+        }while (true);
+    }
+
+
+    private void addFacility(AbstractFacility facility ){
+        if(facility instanceof House){
+            houseController.add((House) facility);
+        }
+        else if(facility instanceof Room){
+            roomController.add((Room) facility);
+        }
+        else {
+            villaController.add((Villa) facility);
+        }
+    }
 
     private void addFullHouseInfo(){
         System.out.println("Enter house ID");
@@ -872,7 +902,7 @@ public class View {
         int floor = addNumberFloor();
 
         House house = new House(id, name, area, cost, capacity, type,false, standard, floor);
-        houseController.add(house);
+        addFacility(house);
     }
 
     private void displayAllHouse(){
@@ -904,7 +934,7 @@ public class View {
     private void deleteHouse(){
         System.out.println("Enter house ID");
         String id = addHouseId();
-        int index = getIndexByCustomerId(id);
+        int index = getIndexOfHouse(id);
         if(index == -1){
             System.out.println("The ID is not exist");
             return;

@@ -43,7 +43,7 @@ public abstract class AbstractUtils<E> implements IUtils<E>{
     }
 
     @Override
-    public void writeFile(String path, List<String> data) {
+    public void writeFile(String path, List<String> data, boolean check) {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
 
@@ -52,7 +52,13 @@ public abstract class AbstractUtils<E> implements IUtils<E>{
             if(!file.exists()){
                 file.createNewFile();
             }
-            fileWriter = new FileWriter(file);
+            if(check){
+                fileWriter = new FileWriter(file, true);
+            }
+            else {
+                fileWriter = new FileWriter(file);
+            }
+
             bufferedWriter = new BufferedWriter(fileWriter);
 
             for(String str: data){

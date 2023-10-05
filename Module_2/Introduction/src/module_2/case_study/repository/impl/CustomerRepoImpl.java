@@ -13,9 +13,9 @@ public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPerson
 
     @Override
     public void add(Customer customer) {
-        List<Customer> customers = readCustomerFromFile();
+        List<Customer> customers = new ArrayList<>();
         customers.add(customer);
-        writeCustomerToFile(customers);
+        writeCustomerToFile(customers, true);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPerson
                 break;
             }
         }
-        writeCustomerToFile(customers);
+        writeCustomerToFile(customers, false);
 
     }
 
@@ -53,7 +53,7 @@ public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPerson
 
         List<Customer> customers = readCustomerFromFile();
         customers.set(index, customer);
-        writeCustomerToFile(customers);
+        writeCustomerToFile(customers, false);
     }
 
     private List<String> convertCustomerToString(List<Customer> customers){
@@ -100,9 +100,9 @@ public class CustomerRepoImpl extends AbstractUtils<Customer> implements IPerson
         return convertStringToCustomer(data);
     }
 
-    private void writeCustomerToFile(List<Customer> customers){
+    private void writeCustomerToFile(List<Customer> customers, boolean check){
         List<String> data = convertCustomerToString(customers);
-        writeFile(CUSTOMER_PATH,data);
+        writeFile(CUSTOMER_PATH,data, check);
     }
 
 }
