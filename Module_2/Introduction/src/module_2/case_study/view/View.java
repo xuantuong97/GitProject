@@ -197,7 +197,7 @@ public class View {
                 }
             }
             catch (NumberFormatException e){
-                System.out.println("Input must be a integer");
+                System.out.println("Input must be a integer and in the range");
             }
             catch (Exception e){
                 System.out.println("Not valid input");
