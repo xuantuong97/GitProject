@@ -3,10 +3,7 @@ package module_2.case_study.repository.impl;
 import module_2.case_study.model.AbstractFacility;
 import module_2.case_study.repository.IFacilityRepo;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class FacilityRepoImpl<T extends AbstractFacility> implements IFacilityRepo<T> {
@@ -14,9 +11,9 @@ public class FacilityRepoImpl<T extends AbstractFacility> implements IFacilityRe
     private final Map<T, Integer> mapFacility = new LinkedHashMap<>();
 
     @Override
-    public List<T> getMaintenance() {
-        List<T> data = new ArrayList<>(mapFacility.keySet());
-        List<T> result = new ArrayList<>();
+    public Set<T> getMaintenance() {
+        Set<T> data = mapFacility.keySet();
+        Set<T> result = new HashSet<>();
 
         for(T t: data){
             if(t.isMaintenance()){
@@ -32,13 +29,13 @@ public class FacilityRepoImpl<T extends AbstractFacility> implements IFacilityRe
     }
 
     @Override
-    public List<T> getAll() {
-        return new ArrayList<>(mapFacility.keySet());
+    public Set<T> getAll() {
+        return mapFacility.keySet();
     }
 
     @Override
     public void delete(String id) {
-        List<T> data = new ArrayList<>(mapFacility.keySet());
+        Set<T> data = mapFacility.keySet();
         for(T t : data){
             if(t.getId().equals(id)){
                 mapFacility.remove(t);

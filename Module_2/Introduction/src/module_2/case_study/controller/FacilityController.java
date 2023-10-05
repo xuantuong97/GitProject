@@ -5,12 +5,13 @@ import module_2.case_study.service.IFacilityService;
 import module_2.case_study.service.impl.FacilityServiceImpl;
 
 import java.util.List;
+import java.util.Set;
 
 public class FacilityController<T extends AbstractFacility>{
 
     private final IFacilityService<T> facilityService = new FacilityServiceImpl<>();
 
-    public List<T> getMaintenance() {
+    public Set<T> getMaintenance() {
         return facilityService.getMaintenance();
     }
 
@@ -20,7 +21,7 @@ public class FacilityController<T extends AbstractFacility>{
     }
 
 
-    public List<T> getAll() {
+    public Set<T> getAll() {
         return facilityService.getAll();
     }
 

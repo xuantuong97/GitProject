@@ -7,8 +7,10 @@ import module_2.case_study.controller.FacilityController;
 import module_2.case_study.model.*;
 import module_2.case_study.utils.Regex;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class View {
     private final CustomerController customerController = new CustomerController();
@@ -157,7 +159,7 @@ public class View {
             System.out.println("1. Delete a house" +
                     "\n2. Delete a room" +
                     "\n3. Delete a villa" +
-                    "\n4. Delete a menu");
+                    "\n4. Return to menu");
             choose = choose(1,4);
             switch (choose){
                 case 1: deleteHouse();
@@ -906,14 +908,14 @@ public class View {
     }
 
     private void displayAllHouse(){
-        List<House> data = houseController.getAll();
+        Set<House> data = houseController.getAll();
         for(House house : data){
             System.out.println(house);
         }
     }
 
     private void displayMaintenance(){
-        List<House> data = houseController.getMaintenance();
+        Set<House> data = houseController.getMaintenance();
         for(House house : data){
             System.out.println(house);
         }
@@ -921,7 +923,8 @@ public class View {
 
     private int getIndexOfHouse(String id){
         int index = -1;
-        List<House> data = houseController.getMaintenance();
+        Set<House> dataSet = houseController.getAll();
+        List<House> data = new ArrayList<>(dataSet);
         for(int i=0; i<data.size(); i++){
             if(data.get(i).getId().equals(id)){
                 index = i;
